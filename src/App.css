@@ -79,7 +79,7 @@ html, body, #root .App {
 }
 .sidebar-wrapper{
   position: fixed;
-  width: 80vw;
+  width: 89vw;
   height: 100vh;
   max-width: 300px;
   background-color: white;
@@ -134,9 +134,78 @@ html, body, #root .App {
     opacity: 0;
   }
 }
+.sidebar-wrapper{
+  overflow-y: auto;
+}
+.sidebar-wrapper div {
+  max-width: 90%;
+  margin: auto;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.253);
+}
+.sidebar-top{
+  display: flex;
+  justify-content: space-between;
+}
+.close-sidebar-btn{
+  background-color: transparent;
+  border: none; 
+  font-size: 1.5rem;
+}
+.Alle-Kategorien, .Alle-Kategorien ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.Alle-Kategorien li{
+  font-size: 0.9rem;
+  margin: 0;
+  padding: 0;
+}
+.Alle-Kategorien li:first-child{
+  padding: 0 1rem;
+}
+.Alle-Kategorien button{
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  padding: 1rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  transition: all, 100ms, fade-out ;
+}
+.Alle-Kategorien button:hover{
+  background-color: rgba(228, 228, 228, 0.808);
+  font-weight: 600;
+  cursor: pointer;
+}
+.current-page{
+  display: contents;
+}
+.previous-page{
+  display: contents;
+}
+.slide-in{
+  animation-name: sidebar-slide-in;
+  animation-duration: 250ms;
+}
+.translate{
+  transform: translateX(100%);
+}
+.slide-in{
+  transform: translateX(0);
+}
+.contents{
+  display:block;
+  transition: all, 250ms, fade-out;
+}
+
 
 @media only screen and (min-width: 1000px){
   .large-only{
     display: initial;
+  }
+  .small-only{
+    display: none;
   }
 }
