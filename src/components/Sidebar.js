@@ -14,7 +14,7 @@ const Sidebar = ({setShow}) => {
           </div>
           <ul className="Alle-Kategorien" role="menu">
             <li role="none"> <h4> Alle Kategorien </h4></li>
-            <CategoryList setNewPage={setNewPage} data={dummyData} />
+            <CategoryList setNewPage={setNewPage} data={dummyData.subs} />
           </ul>
         </>
     )
@@ -54,38 +54,36 @@ const Sidebar = ({setShow}) => {
 export default Sidebar
 
 
-const CategoryList = ({data, setNewPage, setPrevPage, prevPage, newPage}) => {
+const CategoryList = ({data, setNewPage, }) => {
 
   const getParent = (data, find) => {
-    let parent = ""
+    let path = []
     let result = ""
     const search = (data, find) => {
       if (Array.isArray(data)){
         data.map(item => {
-          if (item.name === find) result = parent
-          else search(item, find)
+          path = [...path, item]
+          search(item, find)
+          if (!result) path.pop() 
         })
-      }
-      else if (typeof data === "object") {
-        if(data.subs){
-          parent = data
-          search(data.subs, find)
-        } 
+      }else{
+        if (data.name === find) result = path.at(-2)
+        else if (data.subs) search(data.subs, find)
       }
     }
     search(data, find)
     return result
   }
   const nextPage = (data) => {
+    let currentDataBranch = data
     let prevPage = getParent(dummyData, data.name)
-    console.log(data)
-    if(!Array.isArray(data)){
+    if(data.name !== "Übersicht"){
       let page =  <>
                     <div>
                       <button onClick={() => nextPage(prevPage ? prevPage : dummyData)}> {prevPage ? `Zurück zu ${prevPage.name}` : "Zurück zur Übersicht" } </button>
                     </div>
                     <ul className="Alle-Kategorien" role="menu" key={data.name} >
-                      <CategoryList setNewPage={setNewPage} data={data.subs} />
+                      <CategoryList setNewPage={setNewPage} data={data.subs} currentDataBranch = {currentDataBranch} />
                     </ul>
                   </>
       setNewPage(page)
@@ -97,7 +95,7 @@ const CategoryList = ({data, setNewPage, setPrevPage, prevPage, newPage}) => {
                     </div>
                     <ul className="Alle-Kategorien" role="menu">
                       <li role="none"> <h4> Alle Kategorien </h4></li>
-                      <CategoryList setNewPage={setNewPage} data={dummyData} />
+                      <CategoryList setNewPage={setNewPage} data={dummyData.subs} />
                     </ul>
                   </>
     setNewPage(page)
@@ -110,7 +108,7 @@ const CategoryList = ({data, setNewPage, setPrevPage, prevPage, newPage}) => {
         {
           data.map(item => {
           if (!item.subs){
-            return <li key={item.name} > {item.name} without children </li>
+            return <li key={item.name} > {item.name} </li>
           }
           return(
             <li>
@@ -119,7 +117,6 @@ const CategoryList = ({data, setNewPage, setPrevPage, prevPage, newPage}) => {
                 <FontAwesomeIcon icon={faAngleRight}/>
               </button>
             </li>
-            
           )
         })}
       </>
@@ -127,7 +124,9 @@ const CategoryList = ({data, setNewPage, setPrevPage, prevPage, newPage}) => {
   }
 }
 
-const dummyData = [
+const dummyData = {
+  name: "Übersicht",
+  subs: [
   {
     name: "1",
     subs: [
@@ -163,64 +162,64 @@ const dummyData = [
       }
     ]
   },
-  // {
-  //   name: "Angebote & Aktionen",
-  //   subs: [
-  //     {
-  //       name: "Zu Angebote & Aktionen"
-  //     },
-  //     {
-  //       name: "Unser Service",
-  //       subs: [
-  //         {
-  //           name: "Zu Unser Service"
-  //         },
-  //         {
-  //           name: "Miet mich!"
-  //         },
-  //         {
-  //           name: "Fotoservice"
-  //         },
-  //         {
-  //           name: "Aktuelle Gewinnspiele"
-  //         },
-  //         {
-  //           name: "0% Finanzierung"
-  //         },
-  //       ]
-  //     }
-  //   ]
-  // },
-  // {
-  //   name: "Computer & Büro",
-  //   subs: [
-  //     {
-  //       name: "Zu Computer & Büro"
-  //     },
-  //     {
-  //       name: "Notebooks & Zubehör",
-  //       subs: [
-  //         {
-  //           name: "Zu Notebooks & Zubehör"
-  //         },
-  //         {
-  //           name: "Notebooks"
-  //         },
-  //         {
-  //           name: "2in1 Convertibles"
-  //         },
-  //         {
-  //           name: "Ultrabooks"
-  //         }
-  //       ]
-  //     },
-  //     {
-  //       name: "Notebook Kaufberatung"
-  //     },
-  //     {
-  //       name: "Mac Konfigurator"
-  //     },
-  //   ]
-  // }
+   {
+     name: "Angebote & Aktionen",
+     subs: [
+       {
+         name: "Zu Angebote & Aktionen"
+       },
+       {
+         name: "Unser Service",
+         subs: [
+           {
+             name: "Zu Unser Service"
+           },
+           {
+             name: "Miet mich!"
+           },
+           {
+             name: "Fotoservice"
+           },
+           {
+             name: "Aktuelle Gewinnspiele"
+           },
+           {
+             name: "0% Finanzierung"
+           },
+         ]
+       }
+     ]
+   },
+   {
+     name: "Computer & Büro",
+     subs: [
+       {
+         name: "Zu Computer & Büro"
+       },
+       {
+         name: "Notebooks & Zubehör",
+         subs: [
+           {
+             name: "Zu Notebooks & Zubehör"
+           },
+           {
+             name: "Notebooks"
+           },
+           {
+             name: "2in1 Convertibles"
+           },
+           {
+             name: "Ultrabooks"
+           }
+         ]
+       },
+       {
+         name: "Notebook Kaufberatung"
+       },
+       {
+         name: "Mac Konfigurator"
+       },
+     ]
+   }
   
-]
+]}
