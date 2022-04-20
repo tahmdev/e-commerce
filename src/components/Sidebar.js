@@ -108,7 +108,7 @@ const CategoryList = ({data, setNewPage, }) => {
         {
           data.map(item => {
           if (!item.subs){
-            return <li key={item.name} > {item.name} </li>
+            return <li key={item.name} className="final-li" role="none"> <a href="http://localhost:3000/" role="menuitem"> {item.name} </a> </li>
           }
           return(
             <li>

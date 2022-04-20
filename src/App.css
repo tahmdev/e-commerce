@@ -162,7 +162,7 @@ html, body, #root .App {
   margin: 0;
   padding: 0;
 }
-.Alle-Kategorien li:first-child{
+.Alle-Kategorien h4{
   padding: 0 1rem;
 }
 .Alle-Kategorien button{
@@ -179,28 +179,16 @@ html, body, #root .App {
   font-weight: 600;
   cursor: pointer;
 }
-.current-page{
-  display: contents;
+.final-li a {
+  text-decoration: none;
+  color: black;  padding: 1rem !important;
+  transition: all, 100ms, fade-out ;
+  padding: 1rem;
+  display: block;
 }
-.previous-page{
-  display: contents;
+.final-li:hover{
+  background-color: rgba(228, 228, 228, 0.808);
 }
-.slide-in{
-  animation-name: sidebar-slide-in;
-  animation-duration: 250ms;
-}
-.translate{
-  transform: translateX(100%);
-}
-.slide-in{
-  transform: translateX(0);
-}
-.contents{
-  display:block;
-  transition: all, 250ms, fade-out;
-}
-
-
 @media only screen and (min-width: 1000px){
   .large-only{
     display: initial;
