@@ -1,38 +1,142 @@
-.App {
-  text-align: center;
+html, body, #root .App {
+  margin: 0;
+  padding: 0;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.large-only{
+  display: none;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.flex-container{
   display: flex;
-  flex-direction: column;
+}
+.header{
+  background-color: rgb(252, 35, 35);
+}
+.header-top {
+  display: flex;
+  justify-content: space-around;
+  color:white;
+  background-color: rgba(0, 0, 0, 0.315);
+  padding: 0.5rem 0;
+}
+.header-icon{
+  margin: 0 0.5rem;
+}
+.header-top a {
+  font-size: 0.85rem;
+  color:white;
+  text-decoration: none;
+  border-bottom: 1px solid white;
+  line-height: 1.5rem;
+}
+.logo{
+  max-width: 100px;
+}
+.header-bottom{
+  flex-wrap: wrap;
+  justify-content: space-around;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+.header-icon-link{
+  background-color: white;
+  display: block;
+  color: black;
+  padding: 0.8rem;
+  border-radius: 50%;
+  aspect-ratio: 1/1 !important;  
+}
+.burger{
   color: white;
+  background-color: transparent;
+  border: none;
+  font-size: 1.7rem;
 }
 
-.App-link {
-  color: #61dafb;
+.search-bar-wrapper{
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+  width: 100%;
+  justify-content: center;
 }
-
-@keyframes App-logo-spin {
+.search-btn{
+  background-color: white;
+  border: none;
+  font-size: 0.9rem;
+  height: 45px;
+  padding: 0 0.2rem;
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+}
+.search-input{
+  border: none;
+  font-size: 0.9rem;
+  height: 45px;
+  padding: 0;
+  width: 70%;
+  padding-left: 0.5rem;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+}
+.sidebar-wrapper{
+  position: fixed;
+  width: 80vw;
+  height: 100vh;
+  max-width: 300px;
+  background-color: white;
+  animation: slide-in 200ms, fade-in 200ms;
+  animation-timing-function: ease-out;
+}
+.background{
+  background-color: rgba(0, 0, 0, 0.507);
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  animation: fade-in 200ms;
+  animation-timing-function: ease-out;
+}
+.slide-out{
+  animation: fade-out 300ms, slide-out 450ms;
+  animation-fill-mode: forwards;
+}
+.fade-out{
+  animation: fade-out 300ms;
+  animation-fill-mode: forwards;
+}
+@keyframes slide-out{
   from {
-    transform: rotate(0deg);
+    transform: translateX(0);
   }
   to {
-    transform: rotate(360deg);
+    transform: translateX(-70%);
+  }
+}
+@keyframes slide-in {
+  from {
+    transform: translateX(-70%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes fade-in{
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@media only screen and (min-width: 1000px){
+  .large-only{
+    display: initial;
   }
 }
