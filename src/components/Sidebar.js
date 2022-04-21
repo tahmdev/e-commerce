@@ -2,19 +2,18 @@ import { useEffect, useRef, useState } from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark, faAngleRight } from '@fortawesome/free-solid-svg-icons'
 
-const Sidebar = ({setShow}) => {
+const Sidebar = ({setShow, setShowMeinMarkt}) => {
   let [newPage, setNewPage] = useState()
+  
 
   //set initial sidebar content
   useEffect(() => {
     setNewPage(
         <>
-          <div>
-            Mein Markt
-          </div>
           <ul className="Alle-Kategorien" role="menu">
+            <li className="mein-markt" > <button onClick={() => {setShowMeinMarkt(true); handleHide() }}> Mein Markt</button> </li>
             <li role="none"> <h4> Alle Kategorien </h4></li>
-            <CategoryList setNewPage={setNewPage} data={dummyData.subs} />
+            <CategoryList setNewPage={setNewPage} data={dummyData.subs} setShowMeinMarkt={setShowMeinMarkt} handleHide={handleHide} />
           </ul>
         </>
     )
@@ -54,7 +53,7 @@ const Sidebar = ({setShow}) => {
 export default Sidebar
 
 
-const CategoryList = ({data, setNewPage, }) => {
+const CategoryList = ({data, setNewPage, setShowMeinMarkt, handleHide }) => {
 
   const getParent = (data, find) => {
     let path = []
@@ -75,7 +74,6 @@ const CategoryList = ({data, setNewPage, }) => {
     return result
   }
   const nextPage = (data) => {
-    let currentDataBranch = data
     let prevPage = getParent(dummyData, data.name)
     if(data.name !== "Übersicht"){
       let page =  <>
@@ -83,45 +81,41 @@ const CategoryList = ({data, setNewPage, }) => {
                       <button onClick={() => nextPage(prevPage ? prevPage : dummyData)}> {prevPage ? `Zurück zu ${prevPage.name}` : "Zurück zur Übersicht" } </button>
                     </div>
                     <ul className="Alle-Kategorien" role="menu" key={data.name} >
-                      <CategoryList setNewPage={setNewPage} data={data.subs} currentDataBranch = {currentDataBranch} />
+                      <CategoryList setNewPage={setNewPage} data={data.subs} setShowMeinMarkt={setShowMeinMarkt} handleHide={handleHide}/>
                     </ul>
                   </>
       setNewPage(page)
     }
     else{
       let page =  <>
-                    <div>
-                      Mein Markt
-                    </div>
                     <ul className="Alle-Kategorien" role="menu">
+                      <li className="mein-markt" > <button onClick={() => {setShowMeinMarkt(true); handleHide()}} > Mein Markt</button> </li>
                       <li role="none"> <h4> Alle Kategorien </h4></li>
-                      <CategoryList setNewPage={setNewPage} data={dummyData.subs} />
+                      <CategoryList setNewPage={setNewPage} data={dummyData.subs} setShowMeinMarkt={setShowMeinMarkt} />
                     </ul>
                   </>
     setNewPage(page)
     }
   }
   
-  if (data){
-    return(
-      <>
-        {
-          data.map(item => {
-          if (!item.subs){
-            return <li key={item.name} className="final-li" role="none"> <a href="http://localhost:3000/" role="menuitem"> {item.name} </a> </li>
-          }
-          return(
-            <li>
-              <button onClick={e => nextPage(item, e)} key={item.name} >
-                <span> {item.name} </span>
-                <FontAwesomeIcon icon={faAngleRight}/>
-              </button>
-            </li>
-          )
-        })}
-      </>
-    )
-  }
+  return(
+    <>
+      {
+        data.map(item => {
+        if (!item.subs){
+          return <li key={item.name} className="final-li" role="none"> <a href="http://localhost:3000/" role="menuitem"> {item.name} </a> </li>
+        }
+        return(
+          <li>
+            <button onClick={e => nextPage(item, e)} key={item.name} >
+              <span> {item.name} </span>
+              <FontAwesomeIcon icon={faAngleRight}/>
+            </button>
+          </li>
+        )
+      })}
+    </>
+  )
 }
 
 const dummyData = {
