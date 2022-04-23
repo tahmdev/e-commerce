@@ -12,7 +12,7 @@ section{
   margin: 1rem;
   max-width: 1300px;
   margin: 1rem;
-
+  margin-top: 5rem;
 }
 .flex-container{
   display: flex;
@@ -290,7 +290,7 @@ section{
   padding: 0;
   max-width: 1300px;
 }
-.carousel::-webkit-scrollbar{
+.carousel-wrapper::-webkit-scrollbar{
   display: none;
 }
 .carousel-item{
@@ -302,7 +302,7 @@ section{
 .carousel-controls{
   justify-content: space-between;
   align-items: center;
-  margin: 1rem;
+  margin: 0 1rem;
 }
 .dot-wrapper{
   display: flex;
@@ -420,6 +420,9 @@ section{
 }
 .secondary-carousel li{
   width: Calc(100vw - 2rem)
+}
+.secondary-carousel-controls{
+  margin: 0;
 }
 @media only screen and (min-width: 520px){
   .mein-markt-popup{

@@ -22,7 +22,7 @@ function App() {
     <div className="App">
       <Header />
       <Banner />
-      <Carousel >
+      <Carousel autoScroll={9000} >
         {carousel1Data.map(item => <CarouselCard item={item}  /> )}
       </Carousel>
       <section>
@@ -37,7 +37,7 @@ function App() {
         <header>
           <h2> Aus der Werbung </h2>
         </header>
-        <Carousel carouselClass="secondary-carousel">
+        <Carousel carouselClass="secondary-carousel" controlsClass="secondary-carousel-controls" autoScroll={9000} >
           {carousel1Data.map(item => <CarouselCard item={item} classes="secondary-card" infoClasses="top" /> )}
         </Carousel>
       </section>
