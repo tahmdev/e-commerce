@@ -8,6 +8,12 @@ html, body, #root .App {
 button:hover{
   cursor: pointer;
 }
+section{
+  margin: 1rem;
+  max-width: 1300px;
+  margin: 1rem;
+
+}
 .flex-container{
   display: flex;
   column-gap: 1rem;
@@ -248,19 +254,197 @@ button:hover{
 .mein-markt-popup .search-bar-wrapper:hover{
   border-bottom: 2px solid rgb(95, 95, 95);
 }
+.banner{
+  display: block;
+  text-decoration: none;
+}
+.banner div {
+  margin: 1rem;
+}
+.banner h2{
+  color: black;
+}
+.banner button {
+  background-color: rgb(39, 38, 38);
+  color: white;
+  border: none;
+  padding: 0.7rem;
+  width: 100%;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.banner button:hover{
+  background-color: rgb(70, 70, 70);
+}
 
+/* Carousel */
+.carousel{
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  padding: 0;
+  margin-left: 1rem;
+  overflow: auto;
+  scroll-snap-type: x mandatory;
+  max-width: 1300px;
+}
+.carousel::-webkit-scrollbar{
+  display: none;
+}
+.carousel-item{
+  width: Calc(100vw - 1rem);
+  flex-shrink: 0;
+  scroll-snap-align: start;
+}
+
+.carousel-controls{
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem;
+}
+.dot-wrapper{
+  display: flex;
+  align-content: center;
+}
+.carousel-dot-button{
+  color: rgb(138, 138, 138);
+  font-size: 0.56rem;
+  padding: 0.5rem;
+  background-color: transparent;
+  border: none;
+}
+.carousel-navigation{
+  color: rgb(138, 138, 138);
+  padding: 0.5rem;
+  font-size: 1rem;
+  background-color: transparent;
+  border: none;
+}
+
+
+.primary-link{
+  display: flex;
+  flex-direction: column-reverse;
+  text-decoration: none;
+  color: black;
+  position: relative;
+}
+.primary-image{
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.primary-title{
+  color: red;
+  font-weight: 800;
+  margin: 1rem 0 0.5rem 0;
+  font-size: 1.4rem;
+}
+.primary-p{
+  margin: 0;
+  line-height: 1.5rem;
+}
+
+.info-wrapper{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.info{
+  padding: 0.1rem 1rem;
+  border-radius: 4px;
+  margin: 1rem 0;
+  font-size: 0.85rem;
+}
+.preTitle{
+  display: block;
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+.gallery-wrapper{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.gallery-card{
+  border: 1px solid rgb(167, 167, 167);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+}
+.gallery-card img {
+  max-width: 80%;
+}
+.gallery-card span {
+  text-align: center;
+  margin-bottom: 1.5rem ;
+  font-weight: 500;
+}
+.secondary-carousel{
+  margin-left: 0;
+}
+.secondary-carousel li{
+  width: Calc(100vw - 2rem)
+}
 @media only screen and (min-width: 520px){
   .mein-markt-popup{
     max-height: 400px;
     margin-top: 40px;
   }
+  .gallery-wrapper{
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
-
+@media only screen and (min-width: 750px){
+  .info{
+    margin: 0 0 1rem 0;
+  }
+  .primary-link{
+    width: 100%;
+    flex-direction: row;
+    max-width: 1300px;
+  }
+  .carousel{
+    margin: 4rem 0 ;
+  }
+  .carousel-wrapper{
+    max-width: 1300px;
+    margin: auto;
+  }
+  .carousel-item{
+    width: 100%;
+    max-width: 1300px;
+  }
+  .primary-text-container{
+    width: 34%;
+    flex-shrink: 0;
+    margin: 0 1rem;
+  }
+  .primary-image{
+    width: Calc(64% - 1rem);
+    height: 420px;
+    max-width: 1300px;
+  }
+}
 @media only screen and (min-width: 1000px){
   .large-only{
     display: initial;
   }
   .small-only{
     display: none;
+  }
+  .gallery-wrapper{
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+@media only screen and (min-width: 1300px){
+  section{
+    margin: auto;
   }
 }
