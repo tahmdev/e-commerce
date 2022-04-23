@@ -1,7 +1,7 @@
-const Info = ({array, color}) => {
+const Info = ({array, color, classes}) => {
 
   return(
-    <div className="info-wrapper">
+    <div className={`info-wrapper ${classes}`}>
       {array.map(item => {
         return(
           <div className="info" style={{border: `1px solid ${color}` }} >

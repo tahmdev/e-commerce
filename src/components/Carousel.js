@@ -48,8 +48,8 @@ const Carousel = ({children, carouselClass , carouselItemClass, arrowNavigationC
   }, [updateCurrentPosState])
   
   return(
-    <div className="carousel-wrapper" >
-      <ul className={`carousel ${carouselClass}`} ref={carouselRef} >
+    <div className={`carousel-wrapper ${carouselClass}`} >
+      <ul className="carousel" ref={carouselRef} >
         {
           children.map((item, idx) => {
             return(

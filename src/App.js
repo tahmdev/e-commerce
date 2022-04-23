@@ -2,7 +2,7 @@ import './App.css';
 import Header from './components/Header';
 import Banner from './components/banner';
 import Carousel from './components/Carousel';
-import PrimaryCard from './components/primary-card';
+import CarouselCard from './components/carousel-card';
 import Gallery from './components/gallery';
 import GalleryCard from './components/gallery-card';
 function App() {
@@ -23,7 +23,7 @@ function App() {
       <Header />
       <Banner />
       <Carousel >
-        {carousel1Data.map(item => <PrimaryCard item={item}  /> )}
+        {carousel1Data.map(item => <CarouselCard item={item}  /> )}
       </Carousel>
       <section>
         <header>
@@ -38,7 +38,7 @@ function App() {
           <h2> Aus der Werbung </h2>
         </header>
         <Carousel carouselClass="secondary-carousel">
-          {carousel1Data.map(item => <PrimaryCard item={item} classes="secondary-card" /> )}
+          {carousel1Data.map(item => <CarouselCard item={item} classes="secondary-card" infoClasses="top" /> )}
         </Carousel>
       </section>
     </div>

@@ -278,14 +278,16 @@ section{
 }
 
 /* Carousel */
+.carousel-wrapper{
+  overflow: auto;
+  scroll-snap-type: x mandatory;
+  margin-left: 1rem;
+}
 .carousel{
   display: flex;
   flex-direction: row;
   list-style: none;
   padding: 0;
-  margin-left: 1rem;
-  overflow: auto;
-  scroll-snap-type: x mandatory;
   max-width: 1300px;
 }
 .carousel::-webkit-scrollbar{
@@ -322,28 +324,53 @@ section{
 }
 
 
-.primary-link{
+.carousel-card-link{
   display: flex;
   flex-direction: column-reverse;
   text-decoration: none;
   color: black;
   position: relative;
 }
-.primary-image{
+.carousel-card-image{
   height: 300px;
   object-fit: cover;
   border-radius: 10px;
 }
-.primary-title{
+.carousel-card-title{
   color: red;
   font-weight: 800;
   margin: 1rem 0 0.5rem 0;
   font-size: 1.4rem;
 }
-.primary-p{
+.carousel-card-p{
   margin: 0;
   line-height: 1.5rem;
 }
+
+.secondary-card{
+  border: 1px solid rgb(180, 180, 180);
+  border-radius: 10px;
+  overflow-y: visible !important;
+}
+.secondary-card li{
+  overflow-y: visible !important;
+}
+.secondary-card .carousel-card-text-container{
+  margin: 0 1rem 1rem 1rem;
+}
+.secondary-card .top{
+  position: absolute;
+  top: -1rem;
+  left: 0;
+  margin: 0;
+}
+.top .info {
+  margin: 0;
+}
+.secondary-card .info{
+  background-color: white;
+}
+
 
 .info-wrapper{
   display: flex;
@@ -361,6 +388,8 @@ section{
   margin-top: 1rem;
   font-weight: 500;
 }
+
+
 
 .gallery-wrapper{
   display: grid;
@@ -387,7 +416,7 @@ section{
   font-weight: 500;
 }
 .secondary-carousel{
-  margin-left: 0;
+  margin-left: -0rem;
 }
 .secondary-carousel li{
   width: Calc(100vw - 2rem)
@@ -405,13 +434,14 @@ section{
   .info{
     margin: 0 0 1rem 0;
   }
-  .primary-link{
+  .carousel-card-link{
     width: 100%;
     flex-direction: row;
     max-width: 1300px;
   }
   .carousel{
     margin: 4rem 0 ;
+    
   }
   .carousel-wrapper{
     max-width: 1300px;
@@ -420,13 +450,14 @@ section{
   .carousel-item{
     width: 100%;
     max-width: 1300px;
+
   }
-  .primary-text-container{
+  .carousel-card-text-container{
     width: 34%;
     flex-shrink: 0;
     margin: 0 1rem;
   }
-  .primary-image{
+  .carousel-card-image{
     width: Calc(64% - 1rem);
     height: 420px;
     max-width: 1300px;
