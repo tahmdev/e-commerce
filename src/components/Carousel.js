@@ -4,7 +4,8 @@ import React, { useEffect, useRef, useState } from "react"
 
 const Carousel = ({children, autoScroll, carouselClass , carouselItemClass, controlsClass}) => {
   let carouselRef = useRef(null)
-  let [currentPosState, setCurrentPosState] = useState(0)
+  let [currentPosDot, setCurrentPosDot] = useState(0)
+  let [currentPosPxl, setCurrentPosPxl] = useState(0)
   let timer = useRef(null);
 
   const nextPage = () => {
@@ -33,18 +34,18 @@ const Carousel = ({children, autoScroll, carouselClass , carouselItemClass, cont
   }, [])
 
   //used to color current dot navigation & reset timer on scroll
-  const updateCurrentPosState = () => {
+  const updateCurrentPos = () => {
     if (autoScroll) createResetTimer(autoScroll)
     let unit = carouselRef.current.offsetWidth
     let currentPos = carouselRef.current.scrollLeft
-    setCurrentPosState(Math.floor(currentPos / unit))
+    setCurrentPosPxl(currentPos)
+    setCurrentPosDot(Math.floor(currentPos / unit))
   }
 
   useEffect(() => {
-    console.log(currentPosState)
-    carouselRef.current.addEventListener("scroll", updateCurrentPosState)
-    return () => carouselRef.current.removeEventListener("scroll", updateCurrentPosState)
-  }, [updateCurrentPosState])
+    carouselRef.current.addEventListener("scroll", updateCurrentPos)
+    return () => carouselRef.current.removeEventListener("scroll", updateCurrentPos)
+  }, [updateCurrentPos])
   
   const createResetTimer = (delay) => {
     if (timer.current) clearInterval(timer.current)
@@ -78,7 +79,7 @@ const Carousel = ({children, autoScroll, carouselClass , carouselItemClass, cont
           {
             children.map((item, idx) => {
               return (
-                <button className='carousel-dot-button' onClick={() => jumpTo(idx)} style={currentPosState === idx ? {color: "red", fontSize: "1rem"} : null} >
+                <button className='carousel-dot-button' onClick={() => jumpTo(idx)} style={currentPosDot === idx ? {color: "red", fontSize: "1rem"} : null} >
                   <FontAwesomeIcon icon={faCircle}/>
                 </button>
               )
@@ -86,10 +87,10 @@ const Carousel = ({children, autoScroll, carouselClass , carouselItemClass, cont
           }
         </div>
         <div className={`button-wrapper`} >
-          <button className="carousel-navigation" onClick={prevPage} disabled={currentPosState === 0} > 
+          <button className="carousel-navigation" onClick={prevPage} disabled={carouselRef.current ? currentPosPxl <= 25 : true} > 
             <FontAwesomeIcon icon={faAngleLeft} />
           </button>
-          <button className={`carousel-navigation`} onClick={nextPage} disabled={carouselRef.current.scrollLeft +5 >= maxScrollLeft(carouselRef.current)} > 
+          <button className={`carousel-navigation`} onClick={nextPage} disabled={carouselRef.current ? currentPosPxl +5 >= maxScrollLeft(carouselRef.current) : false} > 
             <FontAwesomeIcon icon={faAngleRight} />
           </button>
         </div>
