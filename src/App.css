@@ -303,6 +303,7 @@ section{
   justify-content: space-between;
   align-items: center;
   margin: 0 1rem;
+  max-width: 1300px;
 }
 .dot-wrapper{
   display: flex;
@@ -444,7 +445,6 @@ section{
   }
   .carousel{
     margin: 4rem 0 ;
-    
   }
   .carousel-wrapper{
     max-width: 1300px;
@@ -453,17 +453,22 @@ section{
   .carousel-item{
     width: 100%;
     max-width: 1300px;
-
   }
+
   .carousel-card-text-container{
     width: 34%;
     flex-shrink: 0;
     margin: 0 1rem;
   }
   .carousel-card-image{
-    width: Calc(64% - 1rem);
+    width: Calc(64%);
     height: 420px;
     max-width: 1300px;
+  }
+  .secondary-card{
+    border-right: none;
+    width: Calc(100% - 1rem);
+    
   }
 }
 @media only screen and (min-width: 1000px){
@@ -479,6 +484,9 @@ section{
 }
 @media only screen and (min-width: 1300px){
   section{
+    margin: auto;
+  }
+  .carousel-controls{
     margin: auto;
   }
 }

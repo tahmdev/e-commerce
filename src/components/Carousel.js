@@ -58,7 +58,6 @@ const Carousel = ({children, autoScroll, carouselClass , carouselItemClass, cont
   const handleTimer = (delay) => {
     if (autoScroll){
       if (timer.current) clearInterval(timer.current)
-      console.log(timer)
       timer.current = setInterval(() => {
         nextPage()
       }, delay);

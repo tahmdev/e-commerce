@@ -25,22 +25,24 @@ function App() {
       <Carousel autoScroll={9000} >
         {carousel1Data.map(item => <CarouselCard item={item}  /> )}
       </Carousel>
-      <section>
-        <header>
-          <h2> Unsere beliebtesten Kategorien</h2>
-        </header>
-        <Gallery>
-          {gallery1Data.map(item => <GalleryCard item={item} /> )}
-        </Gallery>
-      </section>
-      <section>
-        <header>
-          <h2> Aus der Werbung </h2>
-        </header>
-        <Carousel carouselClass="secondary-carousel" controlsClass="secondary-carousel-controls" autoScroll={9000} >
-          {carousel1Data.map(item => <CarouselCard item={item} classes="secondary-card" infoClasses="top" /> )}
-        </Carousel>
-      </section>
+      <main>
+        <section>
+          <header>
+            <h2> Unsere beliebtesten Kategorien</h2>
+          </header>
+          <Gallery>
+            {gallery1Data.map(item => <GalleryCard item={item} /> )}
+          </Gallery>
+        </section>
+        <section>
+          <header>
+            <h2> Aus der Werbung </h2>
+          </header>
+          <Carousel carouselClass="secondary-carousel" controlsClass="secondary-carousel-controls" >
+            {carousel1Data.map(item => <CarouselCard item={item} classes="secondary-card" infoClasses="top" /> )}
+          </Carousel>
+        </section>
+      </main>
     </div>
   );
 }
