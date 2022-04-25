@@ -544,9 +544,11 @@ section{
   transform: translateX(-50%);
   width: 70%;
 }
-.long-carousel:hover + .long-controls,
-.long-controls:hover{
-  visibility: visible;
+@media (hover: hover) and (pointer: fine) {
+  .long-carousel:hover + .long-controls,
+  .long-controls:hover{
+    visibility: visible;
+  }
 }
 .long-controls .button-wrapper{
   width: 100%;
@@ -563,6 +565,25 @@ section{
   border-radius: 3px;
 }
 
+.star-rating-wrapper{
+  height: 1.5em;
+  width: fit-content;
+  position: relative;
+}
+.stars-fill{
+  color: red;
+  overflow: hidden;
+  white-space: nowrap;
+  height: 100%;
+  position: absolute;
+  top: 0;
+}
+.stars{
+  color:rgb(151, 151, 151);
+}
+.small-text{
+  font-size: 0.8rem;
+}
 @media only screen and (min-width: 1000px){
   .large-only{
     display: initial;
