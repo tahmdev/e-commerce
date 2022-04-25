@@ -6,21 +6,22 @@ import CarouselCard from './components/carousel-card';
 import Gallery from './components/gallery';
 import GalleryCard from './components/gallery-card';
 import LongCarouselCard from './components/longCarouselCard';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleRight } from '@fortawesome/free-solid-svg-icons'
+
 function App() {
 
-  // 4 Carousel.
-  // 3 Gallery.
-  // 5 Carousel.
-  // 3 Gallery.
-  // 5 Carousel. 
   // 6 Flex(Info boxes with link inside) Width 100, flex direction column. media 1000px => row
+  // padding between sections
   // . fix header for large screens
   // Spend a day on fixing the accessiblity 
   // 7 footer (details later)
   return (
     <div className="App">
       <Header />
-      <Banner />
+      <section>
+        <Banner />
+      </section>
       <Carousel autoScroll={9000} >
         {carousel1Data.map(item => <CarouselCard item={item}  /> )}
       </Carousel>
@@ -51,6 +52,96 @@ function App() {
           <Carousel carouselClass="long-carousel" controlsClass="long-controls" longCarousel>
             {longCarousel1Data.map(item => <LongCarouselCard item={item} /> )}
           </Carousel>
+        </section>
+
+        <section>
+          <header>
+            <h2> Top Angebote für Sie </h2>
+          </header>
+          <Carousel carouselClass="secondary-carousel" controlsClass="secondary-carousel-controls" autoScroll={9000} >
+            {carousel1Data.map(item => <CarouselCard item={item} classes="secondary-card" infoClasses="top" /> )}
+          </Carousel>
+        </section>
+
+        <section>
+          <header>
+            <h2> Die besten Angebote & Aktionen</h2>
+          </header>
+          <Gallery>
+            {gallery2Data.map(item => <GalleryCard item={item} /> )}
+          </Gallery>
+        </section>
+
+        <section className='long-section'>
+          <header>
+            <h2> Unsere Topseller</h2>
+          </header>
+          <Carousel carouselClass="long-carousel" controlsClass="long-controls" longCarousel>
+            {longCarousel1Data.map(item => <LongCarouselCard item={item} /> )}
+          </Carousel>
+        </section>
+
+        <section>
+          <header>
+            <h2> Highlights für Sie </h2>
+          </header>
+          <Gallery>
+            {gallery1Data.map(item => <GalleryCard item={item} /> )}
+          </Gallery>
+        </section>
+
+        <section className='long-section'>
+          <header>
+            <h2> Unsere Empfhehlungen</h2>
+          </header>
+          <Carousel carouselClass="long-carousel" controlsClass="long-controls" longCarousel>
+            {longCarousel1Data.map(item => <LongCarouselCard item={item} /> )}
+          </Carousel>
+        </section>
+
+
+        <section>
+          <h2>Unsere Service Highlights für Sie</h2>
+          <div className='split'>
+
+            <div className='service-box'>
+              <h3>Wunschprodukt einfach finanzieren</h3>
+              <p>Ein Produkt kaufen oder lieber doch finanzieren? Lange Laufzeiten, 0% effektiver Jahreszins** und alles jederzeit unkompliziert online abschließbar.</p>
+              <div className='animated-link'>
+                <a href='http://localhost:3000/'>
+                  <div className='animated-link-flex' >
+                    <FontAwesomeIcon className="red-text" icon={faAngleRight} />
+                    <span>Mehr erfahren <div className='animated-line-bottom' /></span>
+                  </div>
+                </a>
+              </div>            
+            </div>
+            <div className='service-box'>
+              <h3>Mieten statt kaufen mit Grover!</h3>
+              <p>Viele Produkte bei MediaMarkt können mit unserem Kooperationspartner Grover zu flexiblen Laufzeiten gemietet werden.</p>
+              <div className='animated-link'>
+                <a href='http://localhost:3000/'>
+                  <div className='animated-link-flex' >
+                    <FontAwesomeIcon className="red-text" icon={faAngleRight} />
+                    <span>Mehr erfahren <div className='animated-line-bottom' /></span>
+                  </div>
+                </a>
+              </div>           
+            </div>
+            <div className='service-box'>
+              <h3>Lieferung / Marktabholung</h3>
+              <p>Lassen Sie sich Ihre Bestellung liefern oder holen Sie sie ganz bequem und kostenlos in einem von über 260 Märkten ab.</p>
+              <div className='animated-link'>
+                <a href='http://localhost:3000/'>
+                  <div className='animated-link-flex' >
+                    <FontAwesomeIcon className="red-text" icon={faAngleRight} />
+                    <span>Mehr erfahren <div className='animated-line-bottom' /></span>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+          </div>
         </section>
       </main>
     </div>
@@ -120,6 +211,39 @@ const gallery1Data = [
   {
     image: "https://cms-images.mmst.eu/2rj3gcd43pmw/2YaJsL5gwHUKwDPokXBq4z/aa45bf7e6a166222263639786896437c/MM_Waschmaschine.jpg?q=80&w=264",
     text: "Waschmaschinen & Trockner",
+    link: "http://localhost:3000/"
+  },
+]
+
+const gallery2Data = [
+  {
+    image: "https://cms-images.mmst.eu/2rj3gcd43pmw/2TJur0AfHxonBn0GA4xir5/6897e68511bbbbb2a867c20d5a4d7280/MM_Tagesdeals_Icon.png?q=80&w=264",
+    text: "Deal des Tages",
+    link: "http://localhost:3000/"
+  },
+  {
+    image: "https://cms-images.mmst.eu/2rj3gcd43pmw/2e7iTi2JYREelCOQ1D0hpR/020020680693e30deb051d33f26170bb/Smart_wearebles.png.png?q=80&w=264",
+    text: "Smartphones & Wearables",
+    link: "http://localhost:3000/"
+  },
+  {
+    image: "https://cms-images.mmst.eu/2rj3gcd43pmw/2xqsuVcH28sqBh0BtC4HCd/cefbd18250a8cf63026c7c74d9228c8a/TV_Sound.png.jpg?q=80&w=264",
+    text: "TV & Audio",
+    link: "http://localhost:3000/"
+  },
+  {
+    image: "https://cms-images.mmst.eu/2rj3gcd43pmw/DLJitQkj0BhMX87VYcn8Q/a04694b14bb31112d1ebf65e02c4d251/comp_buero.png.png?q=80&w=264",
+    text: "Computer & Büro",
+    link: "http://localhost:3000/"
+  },
+  {
+    image: "https://cms-images.mmst.eu/2rj3gcd43pmw/3uPGnzWP5UtrIzIYpCK3eb/cfd2306fb5b725f5a1d8d954ba0978e7/Haushaltsgross.png.png?q=80&w=264",
+    text: "Haushaltsgroßgeräte",
+    link: "http://localhost:3000/"
+  },
+  {
+    image: "https://cms-images.mmst.eu/2rj3gcd43pmw/2yyiPVv3zh8BU00P9mLJkq/bd6ee4d1709660b6772363f60a3e8701/Gaming_VR.png.png?q=80&w=264",
+    text: "Gaming & VR",
     link: "http://localhost:3000/"
   },
 ]

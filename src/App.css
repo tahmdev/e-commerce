@@ -584,6 +584,85 @@ section{
 .small-text{
   font-size: 0.8rem;
 }
+
+.split{
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10rem;
+
+}
+.split > * + * {
+  margin-top: 2rem;
+}
+.service-box{
+  border-radius: 8px;
+  border: 1px solid rgb(192, 192, 192);
+  height: 18em;
+}
+.service-box > * {
+  display: block;
+  margin: 0 1.3rem;
+  height: 30% !important;
+  overflow: hidden;
+}
+.service-box h3 {
+  color: red;
+  margin-top: 1.5rem;
+  font-size: 1.4rem;
+}
+.animated-link a{
+  color: black;
+  width: fit-content;
+  text-decoration: none;
+}
+.animated-link{
+  margin-top: 1rem;
+}
+.animated-link a {
+  display: block;
+}
+.animated-line-bottom{
+  width: 100%;
+  height: 2px;
+  background-color: grey;
+  animation-name: slide-out;
+  animation-duration: 250ms;
+  animation-fill-mode: forwards;
+}
+@keyframes slide-out {
+  from{
+    transform: translateX(0);
+  }
+  to{
+    transform: translateX(120%);
+  }
+}
+.animated-link a:hover .animated-line-bottom{
+  animation-name: slide-in;
+  animation-duration: 250ms;
+}
+@keyframes slide-in {
+  from{
+    transform: translateX(-120%);
+  }
+  to{
+    transform: translateX(0);
+  }
+}
+.animated-link span {
+  display: inline-block;
+  width: fit-content;
+  overflow: hidden;
+}
+
+.animated-link-flex{
+  display: flex;
+  align-items: center;
+}
+.animated-link-flex > * + * {
+  margin-left: 1rem;
+}
+
 @media only screen and (min-width: 1000px){
   .large-only{
     display: initial;
@@ -593,6 +672,16 @@ section{
   }
   .gallery-wrapper{
     grid-template-columns: repeat(6, 1fr);
+  }
+  .split{
+    flex-direction: row;
+  }
+  .split > * + * {
+    margin-top: 0;
+    margin-left: 2rem;
+  }
+  .split > * {
+    flex-basis: 100%;
   }
 }
 @media only screen and (min-width: 1300px){
