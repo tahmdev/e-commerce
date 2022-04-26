@@ -4,7 +4,7 @@ import { faXmark, faAngleRight } from '@fortawesome/free-solid-svg-icons'
 
 const Sidebar = ({setShow, setShowMeinMarkt}) => {
   let [newPage, setNewPage] = useState()
-  
+  let ref = useRef(null)
 
   //set initial sidebar content
   useEffect(() => {
@@ -20,14 +20,15 @@ const Sidebar = ({setShow, setShowMeinMarkt}) => {
   }, [])
 
   //Hide sidebar on click outside
-  let ref = useRef(null)
   useEffect(() => {
     document.addEventListener("mousedown", handleClick)
     return () => document.removeEventListener("mousedown", handleClick)
   }, [])
+
   const handleClick = (e) => {
     if (ref && !ref.current.contains(e.target)) handleHide()
   }
+
   const handleHide = () => {
     document.getElementById("sidebar-wrapper").classList.add("slide-out")
     document.getElementById("background").classList.add("fade-out")
