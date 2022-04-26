@@ -7,11 +7,13 @@ import Gallery from './components/gallery';
 import GalleryCard from './components/gallery-card';
 import LongCarouselCard from './components/longCarouselCard';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleRight } from '@fortawesome/free-solid-svg-icons'
+import { faAngleRight, faEnvelope, faCommentDots } from '@fortawesome/free-solid-svg-icons'
+import Accordion from './components/Accordion';
 
 function App() {
 
-  // 6 Flex(Info boxes with link inside) Width 100, flex direction column. media 1000px => row
+  // fix sidebar animation
+  // fix sidebar z index 
   // padding between sections
   // . fix header for large screens
   // Spend a day on fixing the accessiblity 
@@ -103,7 +105,6 @@ function App() {
         <section>
           <h2>Unsere Service Highlights für Sie</h2>
           <div className='split'>
-
             <div className='service-box'>
               <h3>Wunschprodukt einfach finanzieren</h3>
               <p>Ein Produkt kaufen oder lieber doch finanzieren? Lange Laufzeiten, 0% effektiver Jahreszins** und alles jederzeit unkompliziert online abschließbar.</p>
@@ -140,9 +141,115 @@ function App() {
                 </a>
               </div>
             </div>
+          </div>
+          <button className='responsive-button btn'> Alle Services entdecken </button>
 
+          <div className='split'>
+          <div className='service-box'>
+              <h3>Fragen zur Technik?</h3>
+              <p>Technikfreude statt Technikfrust? Die Experten der Deutschen Technikberatung nehmen sich gerne die Zeit, Ihre Fragen zu beantworten.</p>
+              <div className='animated-link'>
+                <a href='http://localhost:3000/'>
+                  <div className='animated-link-flex' >
+                    <FontAwesomeIcon className="red-text" icon={faAngleRight} />
+                    <span>Mehr erfahren <div className='animated-line-bottom' /></span>
+                  </div>
+                </a>
+              </div>            
+            </div>
+            <div className='service-box'>
+              <h3>Noch Fragen? Immer gerne.</h3>
+                <div className='service-inner-flex' >
+                  <FontAwesomeIcon icon={faCommentDots} className="service-inner-icon" />
+                  <p>Hier finden Sie Antworten:<br/>In der <a href='http://localhost:3000/'>Hilfe</a> und bei den <a href='http://localhost:3000/'>Fragen & Antworten</a></p>
+                </div>
+                <div className='service-inner-flex' >
+                  <FontAwesomeIcon icon={faEnvelope} className="service-inner-icon" />
+                  <p>Schreiben Sie uns:<br/>Über unser <a href='http://localhost:3000/'>Kontaktformular</a></p>
+                </div>
+            </div>
           </div>
         </section>
+
+        <footer>
+          <section>
+            <div className='grid-container'>
+              <div className='versandpartner'>
+                <span> Unsere versandpartner </span>
+                <div className='flex-container '>
+                  <div className='placeholder' />
+                  <div className='placeholder' />
+                  <div className='placeholder' />
+                </div>
+              </div>
+
+              <div className='einfach-bezahlen'>
+                <span> Einfach bezahlen </span>
+                <div className='flex-container '>
+                  <div className='placeholder' />
+                  <div className='placeholder' />
+                  <div className='placeholder' />
+                  <div className='placeholder' />
+                  <div className='placeholder' />
+                  <div className='placeholder' />
+                  <div className='placeholder' />
+                  <div className='placeholder' />
+                  <div className='placeholder' />
+                  <div className='placeholder' />
+                  <div className='placeholder' />
+                </div>
+              </div>
+            </div>
+
+            <div className='accordion-flex'>
+              <Accordion title="Über uns" classes="kontakt">
+                <ul>
+                  <li><a href='http://localhost:3000/'>Laptops</a></li>
+                  <li><a href='http://localhost:3000/'>Apple Watch</a></li>
+                  <li><a href='http://localhost:3000/'>Apple iPad</a></li>
+                  <li><a href='http://localhost:3000/'>PS5 Spiele</a></li>
+                  <li><a href='http://localhost:3000/'>Gartenpflege</a></li>
+                  <li><a href='http://localhost:3000/'>Nintendo Switch</a></li>
+                  <li><a href='http://localhost:3000/'>Gaming PCs</a></li>
+                </ul>
+              </Accordion>
+              <Accordion title="Über uns" classes="aktuell-beliebt">
+                <ul>
+                  <li><a href='http://localhost:3000/'>Laptops</a></li>
+                  <li><a href='http://localhost:3000/'>Apple Watch</a></li>
+                  <li><a href='http://localhost:3000/'>Apple iPad</a></li>
+                  <li><a href='http://localhost:3000/'>PS5 Spiele</a></li>
+                  <li><a href='http://localhost:3000/'>Gartenpflege</a></li>
+                  <li><a href='http://localhost:3000/'>Nintendo Switch</a></li>
+                  <li><a href='http://localhost:3000/'>Gaming PCs</a></li>
+                </ul>
+              </Accordion>
+              <Accordion title="Über uns" classes="service">
+                <ul>
+                  <li><a href='http://localhost:3000/'>Laptops</a></li>
+                  <li><a href='http://localhost:3000/'>Apple Watch</a></li>
+                  <li><a href='http://localhost:3000/'>Apple iPad</a></li>
+                  <li><a href='http://localhost:3000/'>PS5 Spiele</a></li>
+                  <li><a href='http://localhost:3000/'>Gartenpflege</a></li>
+                  <li><a href='http://localhost:3000/'>Nintendo Switch</a></li>
+                  <li><a href='http://localhost:3000/'>Gaming PCs</a></li>
+                </ul>
+              </Accordion>
+              <Accordion title="Über uns" classes="ueber-uns">
+                <ul>
+                  <li><a href='http://localhost:3000/'>Laptops</a></li>
+                  <li><a href='http://localhost:3000/'>Apple Watch</a></li>
+                  <li><a href='http://localhost:3000/'>Apple iPad</a></li>
+                  <li><a href='http://localhost:3000/'>PS5 Spiele</a></li>
+                  <li><a href='http://localhost:3000/'>Gartenpflege</a></li>
+                  <li><a href='http://localhost:3000/'>Nintendo Switch</a></li>
+                  <li><a href='http://localhost:3000/'>Gaming PCs</a></li>
+                </ul>
+              </Accordion>
+            </div>
+
+          </section>
+        </footer>
       </main>
     </div>
   );

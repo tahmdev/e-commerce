@@ -7,11 +7,7 @@ const StarRating = ({max, avgScore, totalScores}) => {
   let [percentFill, setPercentFill] = useState(0)
   
   useEffect(() => {
-    console.log(avgScore * 100 / max)
     setPercentFill(avgScore * 100 / max) 
-    for (let i = 0; i < 100; i++){
-      console.log(Math.random() * 5)
-    }
   }, [])
 
   return(

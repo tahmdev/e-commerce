@@ -12,9 +12,14 @@ const Carousel = ({children, autoScroll, carouselClass , carouselItemClass, cont
     let unit = carouselRef.current.offsetWidth
     let currentPos = carouselRef.current.scrollLeft
     let newPos = currentPos + unit
-    carouselRef.current.scroll(newPos, 0)
+    //handle loop on autoScroll
+    if (isLastPage(carouselRef.current)) carouselRef.current.scroll(0, 0)
+    else carouselRef.current.scroll(newPos, 0)
   }
 
+  const isLastPage = (element) => {
+    return element.scrollLeft === element.scrollWidth - element.clientWidth
+  }
 
   const prevPage = () => {
     let unit = carouselRef.current.offsetWidth
@@ -54,9 +59,7 @@ const Carousel = ({children, autoScroll, carouselClass , carouselItemClass, cont
     }, delay);
   }
 
-  const maxScrollLeft = (element) => {
-    return element.scrollWidth - element.clientWidth
-  }
+
 
   return(
     <>
@@ -90,7 +93,7 @@ const Carousel = ({children, autoScroll, carouselClass , carouselItemClass, cont
           <button className="carousel-navigation" onClick={prevPage} disabled={carouselRef.current ? currentPosPxl <= 25 : true} > 
             <FontAwesomeIcon icon={faAngleLeft} />
           </button>
-          <button className={`carousel-navigation`} onClick={nextPage} disabled={carouselRef.current ? currentPosPxl +5 >= maxScrollLeft(carouselRef.current) : false} > 
+          <button className={`carousel-navigation`} onClick={nextPage} disabled={carouselRef.current ? isLastPage(carouselRef.current) : false} > 
             <FontAwesomeIcon icon={faAngleRight} />
           </button>
         </div>
