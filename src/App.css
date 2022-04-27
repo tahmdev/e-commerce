@@ -16,8 +16,12 @@ section{
   margin-top: 5rem;
 }
 .flex-container{
-  display: flex;
+  display: flex !important;
   column-gap: 1rem;
+  align-content: center;
+}
+.flex-container > svg {
+  margin: auto 0;
 }
 .header{
   background-color: rgb(252, 35, 35);
@@ -96,9 +100,9 @@ section{
   width: 89vw;
   height: 100vh;
   max-width: 300px;
+  overflow-y: auto;
   background-color: white;
   animation: slide-in 200ms, fade-in 200ms;
-  overflow-y: auto;
   animation-timing-function: ease-out;
 }
 .background{
@@ -111,7 +115,7 @@ section{
   animation-timing-function: ease-out;
 }
 .slide-out{
-  animation: fade-out 300ms, slide-out 450ms;
+  animation: slide-out 450ms;
   animation-fill-mode: forwards;
 }
 .fade-out{
@@ -272,7 +276,6 @@ section{
   color: white;
   border: none;
   padding: 0.7rem;
-  width: 100%;
   font-size: 1.2rem;
   font-weight: 600;
 }
@@ -306,6 +309,7 @@ section{
   justify-content: space-between;
   align-items: center;
   margin: 0 1rem;
+  margin-top: -2rem !important;
   max-width: 1300px;
 }
 .dot-wrapper{
@@ -449,6 +453,10 @@ section{
     flex-direction: row;
     max-width: 1300px;
   }
+  .carousel-title{
+    margin-bottom: -2rem !important;
+    z-index: 4;
+  }
   .carousel{
     margin: 4rem 0 ;
   }
@@ -518,7 +526,7 @@ section{
 }
 .long-section h2{
   max-width: 1300px;
-  margin: auto;
+  margin: 0 auto;
 }
 .long-carousel{
   max-width: none;
@@ -611,36 +619,18 @@ section{
   color: red;
   margin-top: 1.5rem;
   font-size: 1.4rem;
+  letter-spacing: -1px;
+  height: 4rem;
 }
 .service-box p {
-  margin-top: 2rem;
-  height: 35%;
+  height: 45%;
 }
 .service-box > div {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
-.animated-link a{
-  color: black;
-  width: fit-content;
-  text-decoration: none;
-}
-.animated-link{
-  margin-top: 1rem;
-}
-.animated-link a {
-  display: block;
-}
-.animated-line-bottom{
-  width: 100%;
-  height: 2px;
-  background-color: grey;
-  animation-name: slide-out;
-  animation-duration: 250ms;
-  animation-fill-mode: forwards;
-}
 .responsive-button{
-  width: 100%;
+  width: 100% ;
 }
 .btn {
   background-color: white;
@@ -675,7 +665,7 @@ section{
   display: inline-block;
   border-bottom: 2px solid rgb(87, 87, 87);
 }
-@keyframes slide-out {
+@keyframes slide-out-2 {
   from{
     transform: translateX(0);
   }
@@ -683,11 +673,7 @@ section{
     transform: translateX(120%);
   }
 }
-.animated-link a:hover .animated-line-bottom{
-  animation-name: slide-in;
-  animation-duration: 250ms;
-}
-@keyframes slide-in {
+@keyframes slide-in-2 {
   from{
     transform: translateX(-120%);
   }
@@ -695,20 +681,10 @@ section{
     transform: translateX(0);
   }
 }
-.animated-link span {
-  display: inline-block;
-  width: fit-content;
-  overflow: hidden;
-}
-.animated-link-flex{
-  display: flex;
-  align-items: center;
-}
-.animated-link-flex > * + * {
-  margin-left: 1rem;
-}
 
 footer{
+  color: rgb(204, 203, 203);
+  margin-top: 3rem;
   background-color: rgb(77, 77, 77);
 }
 footer section {
@@ -727,7 +703,6 @@ footer .flex-container{
 }
 footer span{
   text-align: center;
-  color: rgb(204, 203, 203);
   margin-bottom: 1rem;
   display: block;
   text-align: start;
@@ -737,6 +712,21 @@ footer span{
   display: grid;
   padding-top: 3rem;
   margin-bottom: 3rem;
+}
+.lift:hover{
+  box-shadow: 0 1px 4px 4px rgba(0, 0, 0, 0.075);
+  transform: translateY(-1px);
+  transition: box-shadow 50ms ease-in-out;
+}
+.test{
+  margin: 0 !important;
+}
+.no-margin{
+  margin: 0 !important;
+}
+.contact-icon{
+  color: rgb(204, 203, 203);
+  font-size: 1.3rem;
 }
 @media (min-width: 500px){
   .grid-container{
@@ -801,6 +791,10 @@ footer span{
   margin-bottom: 2.5rem;
   flex-basis: 100%;
 }
+.accordion-flex .service-inner-icon{
+  color: rgb(204, 203, 203);;
+  height: 1rem !important;
+}
 @media (min-width: 500px) {
   .accordion-flex > * {
     flex-basis: 40%;
@@ -814,6 +808,20 @@ footer span{
   }
   .accordion-flex{
     flex-wrap: nowrap;
+  }
+  .accord-wrapper{
+    border: none;
+  }
+  .accord-icon{
+    display: none;
+  }
+  .accord-items{
+    max-height: 10000px;
+  }
+  .accord-button:hover{
+    cursor: default;
+    user-select: text;
+    pointer-events: none;
   }
   .responsive-button{
     width: 200px;
@@ -838,9 +846,35 @@ footer span{
     flex-basis: 100%;
   }
 }
+.slide-in-border-wrapper{
+  display: inline-block;
+  overflow: hidden;
+}
+.animated-line-bottom-2{
+  width: 100%;
+  pointer-events: none;
+  animation-name: slide-out-2;
+  animation-fill-mode: forwards;
+  animation-duration: 250ms;
+}
+.slide-in-border-content > *{
+  height: fit-content;
+  margin: 0 !important;
+}
+.slide-in-border-content:hover + .animated-line-bottom-2{
+  animation-name: slide-in-2;
+}
+a {
+  text-decoration: none;
+  color:black;
+}
+
+.wrap{
+  flex-wrap: wrap;
+}
 @media only screen and (min-width: 1300px){
   section{
-    margin: auto;
+    margin: 5rem auto;
   }
   .carousel-controls{
     margin: auto;

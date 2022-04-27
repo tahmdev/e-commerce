@@ -10,7 +10,7 @@ const LongCarouselCard = ({item}) => {
   }
 
   return(
-    <a className="long-carousel-card-wrapper" href={item.link} >
+    <a className="long-carousel-card-wrapper lift" href={item.link} >
       <img src={item.image} />
       <StarRating avgScore={item.avgScore} max={5} totalScores={item.totalScores} />
       <p> <span className="bold" > {item.brand} </span> {item.name} </p>
