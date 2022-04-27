@@ -7,14 +7,13 @@ import Gallery from './components/gallery';
 import GalleryCard from './components/gallery-card';
 import LongCarouselCard from './components/longCarouselCard';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleRight, faEnvelope, faCommentDots } from '@fortawesome/free-solid-svg-icons'
+import { faAngleRight, faEnvelope, faCommentDots, faFilePen} from '@fortawesome/free-solid-svg-icons'
 import Accordion from './components/Accordion';
+import WithSlideInBorder from './components/withSlideInBorder';
 
 function App() {
 
-  // fix sidebar animation
-  // fix sidebar z index 
-  // padding between sections
+  // fix sidebar on mobile + style back button
   // . fix header for large screens
   // Spend a day on fixing the accessiblity 
   // 7 footer (details later)
@@ -40,7 +39,7 @@ function App() {
         
         <section>
           <header>
-            <h2> Aus der Werbung </h2>
+            <h2 className='carousel-title' > Aus der Werbung </h2>
           </header>
           <Carousel carouselClass="secondary-carousel" controlsClass="secondary-carousel-controls" autoScroll={9000} >
             {carousel1Data.map(item => <CarouselCard item={item} classes="secondary-card" infoClasses="top" /> )}
@@ -49,7 +48,7 @@ function App() {
         
         <section className='long-section'>
           <header>
-            <h2> Unsere Tageshighlights </h2>
+            <h2 className='carousel-title'> Unsere Tageshighlights </h2>
           </header>
           <Carousel carouselClass="long-carousel" controlsClass="long-controls" longCarousel>
             {longCarousel1Data.map(item => <LongCarouselCard item={item} /> )}
@@ -58,7 +57,7 @@ function App() {
 
         <section>
           <header>
-            <h2> Top Angebote für Sie </h2>
+            <h2 className='carousel-title'> Top Angebote für Sie </h2>
           </header>
           <Carousel carouselClass="secondary-carousel" controlsClass="secondary-carousel-controls" autoScroll={9000} >
             {carousel1Data.map(item => <CarouselCard item={item} classes="secondary-card" infoClasses="top" /> )}
@@ -76,7 +75,7 @@ function App() {
 
         <section className='long-section'>
           <header>
-            <h2> Unsere Topseller</h2>
+            <h2 className='carousel-title'> Unsere Topseller</h2>
           </header>
           <Carousel carouselClass="long-carousel" controlsClass="long-controls" longCarousel>
             {longCarousel1Data.map(item => <LongCarouselCard item={item} /> )}
@@ -94,7 +93,7 @@ function App() {
 
         <section className='long-section'>
           <header>
-            <h2> Unsere Empfhehlungen</h2>
+            <h2 className='carousel-title'> Unsere Empfhehlungen</h2>
           </header>
           <Carousel carouselClass="long-carousel" controlsClass="long-controls" longCarousel>
             {longCarousel1Data.map(item => <LongCarouselCard item={item} /> )}
@@ -108,38 +107,32 @@ function App() {
             <div className='service-box'>
               <h3>Wunschprodukt einfach finanzieren</h3>
               <p>Ein Produkt kaufen oder lieber doch finanzieren? Lange Laufzeiten, 0% effektiver Jahreszins** und alles jederzeit unkompliziert online abschließbar.</p>
-              <div className='animated-link'>
-                <a href='http://localhost:3000/'>
-                  <div className='animated-link-flex' >
-                    <FontAwesomeIcon className="red-text" icon={faAngleRight} />
-                    <span>Mehr erfahren <div className='animated-line-bottom' /></span>
-                  </div>
-                </a>
-              </div>            
+              <a className='flex-container' href='http://localhost:3000/'>
+                <FontAwesomeIcon className="red-text block" icon={faAngleRight} />
+                <WithSlideInBorder style={"2px solid rgb(204, 203, 203)"}>
+                  <p>Mehr erfahren</p>
+                </WithSlideInBorder>
+              </a>
             </div>
             <div className='service-box'>
               <h3>Mieten statt kaufen mit Grover!</h3>
               <p>Viele Produkte bei MediaMarkt können mit unserem Kooperationspartner Grover zu flexiblen Laufzeiten gemietet werden.</p>
-              <div className='animated-link'>
-                <a href='http://localhost:3000/'>
-                  <div className='animated-link-flex' >
-                    <FontAwesomeIcon className="red-text" icon={faAngleRight} />
-                    <span>Mehr erfahren <div className='animated-line-bottom' /></span>
-                  </div>
-                </a>
-              </div>           
+              <a className='flex-container' href='http://localhost:3000/'>
+                <FontAwesomeIcon className="red-text block" icon={faAngleRight} />
+                <WithSlideInBorder style={"2px solid rgb(204, 203, 203)"}>
+                  <p>Mehr erfahren</p>
+                </WithSlideInBorder>
+              </a>
             </div>
             <div className='service-box'>
               <h3>Lieferung / Marktabholung</h3>
               <p>Lassen Sie sich Ihre Bestellung liefern oder holen Sie sie ganz bequem und kostenlos in einem von über 260 Märkten ab.</p>
-              <div className='animated-link'>
-                <a href='http://localhost:3000/'>
-                  <div className='animated-link-flex' >
-                    <FontAwesomeIcon className="red-text" icon={faAngleRight} />
-                    <span>Mehr erfahren <div className='animated-line-bottom' /></span>
-                  </div>
-                </a>
-              </div>
+              <a className='flex-container' href='http://localhost:3000/'>
+                <FontAwesomeIcon className="red-text block" icon={faAngleRight} />
+                <WithSlideInBorder style={"2px solid rgb(204, 203, 203)"}>
+                  <p>Mehr erfahren</p>
+                </WithSlideInBorder>
+              </a>
             </div>
           </div>
           <button className='responsive-button btn'> Alle Services entdecken </button>
@@ -148,14 +141,12 @@ function App() {
           <div className='service-box'>
               <h3>Fragen zur Technik?</h3>
               <p>Technikfreude statt Technikfrust? Die Experten der Deutschen Technikberatung nehmen sich gerne die Zeit, Ihre Fragen zu beantworten.</p>
-              <div className='animated-link'>
-                <a href='http://localhost:3000/'>
-                  <div className='animated-link-flex' >
-                    <FontAwesomeIcon className="red-text" icon={faAngleRight} />
-                    <span>Mehr erfahren <div className='animated-line-bottom' /></span>
-                  </div>
-                </a>
-              </div>            
+              <a className='flex-container' href='http://localhost:3000/'>
+                <FontAwesomeIcon className="red-text block" icon={faAngleRight} />
+                <WithSlideInBorder style={"2px solid rgb(204, 203, 203)"}>
+                  <p>Mehr erfahren</p>
+                </WithSlideInBorder>
+              </a>
             </div>
             <div className='service-box'>
               <h3>Noch Fragen? Immer gerne.</h3>
@@ -202,7 +193,38 @@ function App() {
             </div>
 
             <div className='accordion-flex'>
-              <Accordion title="Über uns" classes="kontakt">
+              <Accordion title="Kontakt">
+                <ul>
+                  <li>
+                    <div className='flex-container' >
+                      <FontAwesomeIcon icon={faCommentDots} className="service-inner-icon" />
+                      <p>
+                        Fragen und Antworten<br/>
+                        <a className='flex-container' href='http://localhost:3000/'>
+                          <WithSlideInBorder style={"2px solid rgb(204, 203, 203)"}>
+                            <p> <FontAwesomeIcon icon={faAngleRight} /> Mehr erfahren</p>
+                          </WithSlideInBorder>
+                        </a>
+                      </p>
+                    </div>
+                  </li>
+                  <li>
+                    <div className='flex-container' >
+                      <FontAwesomeIcon icon={faFilePen} className="service-inner-icon" />
+                      <p>
+                        Schreiben Sie Uns<br/>
+                        <a className='flex-container' href='http://localhost:3000/'>
+                          <WithSlideInBorder style={"2px solid rgb(204, 203, 203)"}>
+                            <p> <FontAwesomeIcon icon={faAngleRight} /> Mehr erfahren</p>
+                          </WithSlideInBorder>
+                        </a>
+                      </p>
+                    </div>
+                  </li>
+
+                </ul>
+              </Accordion>
+              <Accordion title="Aktuell beliebt">
                 <ul>
                   <li><a href='http://localhost:3000/'>Laptops</a></li>
                   <li><a href='http://localhost:3000/'>Apple Watch</a></li>
@@ -213,41 +235,76 @@ function App() {
                   <li><a href='http://localhost:3000/'>Gaming PCs</a></li>
                 </ul>
               </Accordion>
-              <Accordion title="Über uns" classes="aktuell-beliebt">
+              <Accordion title="Service">
                 <ul>
-                  <li><a href='http://localhost:3000/'>Laptops</a></li>
-                  <li><a href='http://localhost:3000/'>Apple Watch</a></li>
-                  <li><a href='http://localhost:3000/'>Apple iPad</a></li>
-                  <li><a href='http://localhost:3000/'>PS5 Spiele</a></li>
-                  <li><a href='http://localhost:3000/'>Gartenpflege</a></li>
-                  <li><a href='http://localhost:3000/'>Nintendo Switch</a></li>
-                  <li><a href='http://localhost:3000/'>Gaming PCs</a></li>
+                  <li><a href='http://localhost:3000/'>Alle Service-Leistungen</a></li>
+                  <li><a href='http://localhost:3000/'>Versandinformationen</a></li>
+                  <li><a href='http://localhost:3000/'>MediaMarkt Service</a></li>
+                  <li><a href='http://localhost:3000/'>FAQ</a></li>
+                  <li><a href='http://localhost:3000/'>Altgeräte-Entsorgung</a></li>
+                  <li><a href='http://localhost:3000/'>Affiliate Partnerprogramm</a></li>
+                  <li><a href='http://localhost:3000/'>Geschäftskunden</a></li>
+                  <li><a href='http://localhost:3000/'>Technikberatung</a></li>
+                  <li><a href='http://localhost:3000/'>Geschenkkarte</a></li>
+                  <li><a href='http://localhost:3000/'>Rückgabe/Retoure</a></li>
+                  <li><a href='http://localhost:3000/'>Produktrückruf</a></li>
+                  <li><a href='http://localhost:3000/'>Mietservice</a></li>
                 </ul>
               </Accordion>
-              <Accordion title="Über uns" classes="service">
+              <Accordion title="Über uns">
                 <ul>
-                  <li><a href='http://localhost:3000/'>Laptops</a></li>
-                  <li><a href='http://localhost:3000/'>Apple Watch</a></li>
-                  <li><a href='http://localhost:3000/'>Apple iPad</a></li>
-                  <li><a href='http://localhost:3000/'>PS5 Spiele</a></li>
-                  <li><a href='http://localhost:3000/'>Gartenpflege</a></li>
-                  <li><a href='http://localhost:3000/'>Nintendo Switch</a></li>
-                  <li><a href='http://localhost:3000/'>Gaming PCs</a></li>
-                </ul>
-              </Accordion>
-              <Accordion title="Über uns" classes="ueber-uns">
-                <ul>
-                  <li><a href='http://localhost:3000/'>Laptops</a></li>
-                  <li><a href='http://localhost:3000/'>Apple Watch</a></li>
-                  <li><a href='http://localhost:3000/'>Apple iPad</a></li>
-                  <li><a href='http://localhost:3000/'>PS5 Spiele</a></li>
-                  <li><a href='http://localhost:3000/'>Gartenpflege</a></li>
-                  <li><a href='http://localhost:3000/'>Nintendo Switch</a></li>
-                  <li><a href='http://localhost:3000/'>Gaming PCs</a></li>
+                  <li><a href='http://localhost:3000/'>Unternehmen</a></li>
+                  <li><a href='http://localhost:3000/'>Unsere Märkte</a></li>
+                  <li><a href='http://localhost:3000/'>Verkaufen auf mediamarkt.de</a></li>
+                  <li><a href='http://localhost:3000/'>Unsere Marken</a></li>
+                  <li><a href='http://localhost:3000/'>Jobs & Karriere</a></li>
+                  <li><a href='http://localhost:3000/'>Koch-mit.de</a></li>
+                  <li><a href='http://localhost:3000/'>Gamez.de</a></li>
+                  <li><a href='http://localhost:3000/'>MediaMagazin</a></li>
+                  <li><a href='http://localhost:3000/'>Nachhaltigkeit</a></li>
+                  <li><a href='http://localhost:3000/'>Schwachstellen-Offenlegungsprogramm</a></li>
                 </ul>
               </Accordion>
             </div>
-
+            <div className='accordion-flex'>
+              <div className='split'>
+                <div>
+                  <a href='http://localhost:3000/' > <img className='logo' src='logo.png' /> </a>
+                </div>
+                <div className='flex-container'>
+                  <WithSlideInBorder style={"2px solid orange"} >
+                    <a href='http://localhost:3000/'>
+                      <FontAwesomeIcon className='contact-icon' icon={faCommentDots} />
+                    </a>
+                  </WithSlideInBorder>
+                  <WithSlideInBorder style={"2px solid orange"}>
+                    <a href='http://localhost:3000/'>
+                      <FontAwesomeIcon className='contact-icon' icon={faEnvelope} />
+                    </a>
+                  </WithSlideInBorder>
+                  <WithSlideInBorder style={"2px solid orange"}>
+                    <a href='http://localhost:3000/'>
+                      <FontAwesomeIcon className='contact-icon' icon={faEnvelope} />
+                    </a>
+                  </WithSlideInBorder>
+                  <WithSlideInBorder style={"2px solid orange"}>
+                    <a href='http://localhost:3000/'>
+                      <FontAwesomeIcon className='contact-icon' icon={faEnvelope} />
+                    </a>
+                  </WithSlideInBorder>
+                </div>
+              </div>
+              <div className='split no-margin'>
+                <div>
+                <p> Laden Sie unsere App herunter</p>
+                  <div className='flex-container wrap' >
+                    <a href='http://localhost:3000/' > <img className='logo' src='logo.png' /> </a>
+                    <a href='http://localhost:3000/' > <img className='logo' src='logo.png' /> </a>
+                    <a href='http://localhost:3000/' > <img className='logo' src='logo.png' /> </a>
+                  </div>
+                </div>
+              </div>
+            </div>
           </section>
         </footer>
       </main>
