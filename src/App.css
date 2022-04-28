@@ -15,6 +15,22 @@ section{
   margin: 1rem;
   margin-top: 5rem;
 }
+.navbar{
+  display: flex;
+  list-style: none;  
+  margin: 0.5rem 1rem;
+  padding: 0;
+  font-size: 0.86rem;
+}
+.navbar > * + *{
+  margin-left: 0.9rem;
+} 
+.navbar * {
+  color: white ;
+}
+.banner-section{
+  margin: 0;
+}
 .flex-container{
   display: flex !important;
   column-gap: 1rem;
@@ -25,14 +41,23 @@ section{
 }
 .header{
   background-color: rgb(252, 35, 35);
+  padding-bottom: 0.7rem;
 }
 .header-top {
+  background-color: rgba(0, 0, 0, 0.315);
+}
+.header-top > .container {
   display: flex;
   justify-content: space-around;
   color:white;
-  background-color: rgba(0, 0, 0, 0.315);
   padding: 0.5rem 0;
 }
+.container{
+  max-width: 1300px;
+  margin: auto;
+}
+
+
 .header-icon{
   margin: 0 0.5rem;
 }
@@ -65,8 +90,42 @@ section{
   background-color: transparent;
   border: none;
   font-size: 1.7rem;
+  display: flex;
+  align-items: center;
 }
+.burger > span{
+  font-size: 0.8rem;  
+  white-space: nowrap;
+  font-weight: 600;
+  margin-left: 1rem;
+}
+.header-bottom > .flex-container{
+  align-items: center;
+}
+@media (min-width: 750px){
+  .header-bottom{
+    flex-wrap: nowrap;
+  }
+  .icon-link-wrapper{
+    order: 1;
+  }
 
+}
+@media (min-width: 1060px) {
+  .large-only{
+    display: initial;
+  }
+
+  .burger{
+    order: 2;
+    border: 3px solid white;
+    border-radius: 8px;
+    font-size: 1.3rem;
+    height: fit-content;
+    padding: 0.6rem 1rem;
+  }
+
+}
 .search-bar-wrapper{
   flex-direction: row-reverse;
   display: flex;
@@ -632,6 +691,11 @@ section{
 .responsive-button{
   width: 100% ;
 }
+@media (min-width: 750px){
+  .responsive-button{
+    width: 200px;
+  }
+}
 .btn {
   background-color: white;
   border: 1px solid rgb(160, 160, 160);
@@ -823,12 +887,8 @@ footer span{
     user-select: text;
     pointer-events: none;
   }
-  .responsive-button{
-    width: 200px;
-  }
-  .large-only{
-    display: initial;
-  }
+
+
   .small-only{
     display: none;
   }
@@ -868,13 +928,109 @@ a {
   text-decoration: none;
   color:black;
 }
-
 .wrap{
   flex-wrap: wrap;
+}
+.popup-button-popup{
+  width: 250px;
+  height: fit-content;
+  padding: 1rem;
+  position: absolute;
+  margin-top: 1.5rem;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.171);
+  border-radius: 8px;
+  background-color: white;
+  z-index: 21;
+  animation-name: fade-in;
+  animation-duration: 100ms;
+  right: 0;
+}
+.navbar-MM-button{
+  width: 170px;
+}
+.navbar-popup-icon{
+  position: absolute;
+  left: 90%;
+}
+.popup-button{
+  display: flex;
+  flex-direction: column;
+  color: white;
+  border: none;
+  position: relative;
+  background-color: transparent;
+  padding: 0;
+}
+.popup-button span {
+  margin-bottom: 0.5rem;
+}
+.popup-button-wrapper{
+  position: relative;
+}
+.popup-button-search{
+  flex-direction: row;
+  padding-bottom: 1rem;
+  margin-bottom: 0.8rem;
+  border-bottom: 1px solid grey;
+}
+
+.popup-button-search input {
+  box-shadow: inset 0 0 0 1px grey;
+  border-radius: 0;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+.popup-button-search button,
+.popup-button-search .header-icon-link{
+  background-color: black;
+  color: white;
+  border-radius: 0;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+.popup-button-popup::after{
+  content: "";
+  position: absolute;
+  top: -10%;
+  right: 0;
+  height: 50px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 40px 34.6px 40px;
+  border-color: transparent transparent white transparent;
+}
+.login-button-popup{
+  right: -50%;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+}
+.login-button-popup > * {
+  margin-top: 1rem;
+}
+.login-button,
+.signup-button {
+  border: 2px solid black;
+  border-radius: 4px;
+  padding: 0.8rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+}
+.login-button{
+  background-color: black;
+  color: white;
+}
+.signup-button{
+  background-color: white;
 }
 @media only screen and (min-width: 1300px){
   section{
     margin: 5rem auto;
+  }
+  .banner-section{
+    margin: 0 auto;
   }
   .carousel-controls{
     margin: auto;

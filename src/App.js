@@ -10,24 +10,25 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faEnvelope, faCommentDots, faFilePen} from '@fortawesome/free-solid-svg-icons'
 import Accordion from './components/Accordion';
 import WithSlideInBorder from './components/withSlideInBorder';
+import { useState } from 'react';
 
 function App() {
-
+  let [selectedMarkt, setSelectedMarkt] = useState()
   // fix sidebar on mobile + style back button
-  // . fix header for large screens
+  // mein markt button with popup in navbar
   // Spend a day on fixing the accessiblity 
-  // 7 footer (details later)
+  
   return (
     <div className="App">
-      <Header />
-      <section>
+      <Header selectedMarkt={selectedMarkt} setSelectedMarkt={setSelectedMarkt} />
+      <section className='banner-section' >
         <Banner />
       </section>
       <Carousel autoScroll={9000} >
         {carousel1Data.map(item => <CarouselCard item={item}  /> )}
       </Carousel>
+      
       <main>
-        
         <section>
           <header>
             <h2> Unsere beliebtesten Kategorien</h2>
@@ -100,7 +101,6 @@ function App() {
           </Carousel>
         </section>
 
-
         <section>
           <h2>Unsere Service Highlights für Sie</h2>
           <div className='split'>
@@ -161,8 +161,9 @@ function App() {
             </div>
           </div>
         </section>
+      </main>
 
-        <footer>
+      <footer>
           <section>
             <div className='grid-container'>
               <div className='versandpartner'>
@@ -307,7 +308,6 @@ function App() {
             </div>
           </section>
         </footer>
-      </main>
     </div>
   );
 }

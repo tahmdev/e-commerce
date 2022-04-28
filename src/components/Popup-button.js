@@ -1,0 +1,41 @@
+import { useEffect, useRef, useState } from "react"
+import Searchbar from "./search-bar"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
+
+const PopupButton = ({classes, triangle, children, popupClasses}) => {
+  let [show, setShow] = useState(false)
+  let ref = useRef()
+  const handleClick = () => {
+    setShow(prev => !prev)
+  }
+
+  const handleMouseDown = (e) => {
+    if (ref && !ref.current.contains(e.target)){
+      setShow(false)
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleMouseDown)
+    return () => document.removeEventListener("mousedown", handleMouseDown)
+  }, [handleMouseDown])
+  return(
+    <div className="popup-button-wrapper" ref={ref} >
+      <button className={`popup-button ${classes}`} onClick={handleClick} >
+        <>
+          {triangle && <FontAwesomeIcon className="navbar-popup-icon" icon={faAngleDown} style={ show ? {transform: "rotateZ(180deg)"} : null } />}
+          {children[0]}
+        </>
+      </button>
+      {show && 
+      <div className={`popup-button-popup ${popupClasses}`}>
+        {children[1]}  
+      </div>
+      }
+    </div>
+
+  )
+}
+
+export default PopupButton
