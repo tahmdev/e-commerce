@@ -82,7 +82,7 @@ const Carousel = ({children, autoScroll, carouselClass , carouselItemClass, cont
           {
             children.map((item, idx) => {
               return (
-                <button className='carousel-dot-button' onClick={() => jumpTo(idx)} style={currentPosDot === idx ? {color: "red", fontSize: "1rem"} : null} >
+                <button className='carousel-dot-button' key={idx} onClick={() => jumpTo(idx)} style={currentPosDot === idx ? {color: "red", fontSize: "1rem"} : null} >
                   <FontAwesomeIcon icon={faCircle}/>
                 </button>
               )

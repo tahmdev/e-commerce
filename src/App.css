@@ -2,6 +2,7 @@ html, body, #root .App {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  height: 100%;
 }
 .large-only{
   display: none;
@@ -265,18 +266,24 @@ section{
 .final-li:hover{
   background-color: rgba(228, 228, 228, 0.808);
 }
-.mein-markt{
-  border-top: 1px solid rgba(0, 0, 0, 0.253);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.253);
+.mein-markt
+, .sidebar-back-button{
+  border-top: 1px solid rgba(0, 0, 0, 0.253) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.253) !important;
 }
 .mein-markt-popup{
   width: 100vw;
-  height: 100vh;
+  height: Calc(100vh - 2rem);
+  padding-top: 1rem;
   background-color: white;
   position: relative;
   max-width: 800px;
   margin: auto;
 }
+.mein-markt-popup .close-popup {
+  margin-top: 1rem;
+}
+
 .close-popup{
   position: absolute;
   padding: 1rem 0.7rem;
@@ -946,7 +953,7 @@ a {
   right: 0;
 }
 .navbar-MM-button{
-  width: 170px;
+  width: 250px;
 }
 .navbar-popup-icon{
   position: absolute;

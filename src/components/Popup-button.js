@@ -21,8 +21,8 @@ const PopupButton = ({classes, triangle, children, popupClasses}) => {
     return () => document.removeEventListener("mousedown", handleMouseDown)
   }, [handleMouseDown])
   return(
-    <div className="popup-button-wrapper" ref={ref} >
-      <button className={`popup-button ${classes}`} onClick={handleClick} >
+    <div className={`popup-button-wrapper ${classes}`} ref={ref} >
+      <button className={`popup-button`} onClick={handleClick} >
         <>
           {triangle && <FontAwesomeIcon className="navbar-popup-icon" icon={faAngleDown} style={ show ? {transform: "rotateZ(180deg)"} : null } />}
           {children[0]}

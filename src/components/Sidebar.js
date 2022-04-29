@@ -78,10 +78,12 @@ const CategoryList = ({data, setNewPage, setShowMeinMarkt, handleHide }) => {
     let prevPage = getParent(dummyData, data.name)
     if(data.name !== "Übersicht"){
       let page =  <>
-                    <div>
-                      <button onClick={() => nextPage(prevPage ? prevPage : dummyData)}> {prevPage ? `Zurück zu ${prevPage.name}` : "Zurück zur Übersicht" } </button>
-                    </div>
                     <ul className="Alle-Kategorien" role="menu" key={data.name} >
+                      <li> 
+                        <button className="sidebar-back-button" onClick={() => nextPage(prevPage ? prevPage : dummyData)}>
+                          {prevPage ? `Zurück zu ${prevPage.name}` : "Zurück zur Übersicht" } 
+                        </button>
+                      </li>
                       <CategoryList setNewPage={setNewPage} data={data.subs} setShowMeinMarkt={setShowMeinMarkt} handleHide={handleHide}/>
                     </ul>
                   </>
@@ -90,9 +92,9 @@ const CategoryList = ({data, setNewPage, setShowMeinMarkt, handleHide }) => {
     else{
       let page =  <>
                     <ul className="Alle-Kategorien" role="menu">
-                      <li className="mein-markt" > <button onClick={() => {setShowMeinMarkt(true); handleHide()}} > Mein Markt</button> </li>
+                      <li className="mein-markt" > <button onClick={() => {setShowMeinMarkt(true); handleHide() }} > Mein Markt</button> </li>
                       <li role="none"> <h4> Alle Kategorien </h4></li>
-                      <CategoryList setNewPage={setNewPage} data={dummyData.subs} setShowMeinMarkt={setShowMeinMarkt} />
+                      <CategoryList setNewPage={setNewPage} data={dummyData.subs} setShowMeinMarkt={setShowMeinMarkt} handleHide={handleHide} />
                     </ul>
                   </>
     setNewPage(page)

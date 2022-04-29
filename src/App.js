@@ -14,8 +14,6 @@ import { useState } from 'react';
 
 function App() {
   let [selectedMarkt, setSelectedMarkt] = useState()
-  // fix sidebar on mobile + style back button
-  // mein markt button with popup in navbar
   // Spend a day on fixing the accessiblity 
   
   return (
@@ -25,7 +23,7 @@ function App() {
         <Banner />
       </section>
       <Carousel autoScroll={9000} >
-        {carousel1Data.map(item => <CarouselCard item={item}  /> )}
+        {carousel1Data.map((item, idx) => <CarouselCard key={idx} item={item}  /> )}
       </Carousel>
       
       <main>
@@ -34,7 +32,7 @@ function App() {
             <h2> Unsere beliebtesten Kategorien</h2>
           </header>
           <Gallery>
-            {gallery1Data.map(item => <GalleryCard item={item} /> )}
+            {gallery1Data.map((item, idx) => <GalleryCard key={idx} item={item} /> )}
           </Gallery>
         </section>
         
@@ -43,7 +41,7 @@ function App() {
             <h2 className='carousel-title' > Aus der Werbung </h2>
           </header>
           <Carousel carouselClass="secondary-carousel" controlsClass="secondary-carousel-controls" autoScroll={9000} >
-            {carousel1Data.map(item => <CarouselCard item={item} classes="secondary-card" infoClasses="top" /> )}
+            {carousel1Data.map((item, idx) => <CarouselCard key={idx} item={item} classes="secondary-card" infoClasses="top" /> )}
           </Carousel>
         </section>
         
@@ -52,7 +50,7 @@ function App() {
             <h2 className='carousel-title'> Unsere Tageshighlights </h2>
           </header>
           <Carousel carouselClass="long-carousel" controlsClass="long-controls" longCarousel>
-            {longCarousel1Data.map(item => <LongCarouselCard item={item} /> )}
+            {longCarousel1Data.map((item, idx) => <LongCarouselCard key={idx} item={item} /> )}
           </Carousel>
         </section>
 
@@ -61,7 +59,7 @@ function App() {
             <h2 className='carousel-title'> Top Angebote für Sie </h2>
           </header>
           <Carousel carouselClass="secondary-carousel" controlsClass="secondary-carousel-controls" autoScroll={9000} >
-            {carousel1Data.map(item => <CarouselCard item={item} classes="secondary-card" infoClasses="top" /> )}
+            {carousel1Data.map((item, idx) => <CarouselCard key={idx} item={item} classes="secondary-card" infoClasses="top" /> )}
           </Carousel>
         </section>
 
@@ -70,7 +68,7 @@ function App() {
             <h2> Die besten Angebote & Aktionen</h2>
           </header>
           <Gallery>
-            {gallery2Data.map(item => <GalleryCard item={item} /> )}
+            {gallery2Data.map((item, idx) => <GalleryCard key={idx} item={item} /> )}
           </Gallery>
         </section>
 
@@ -79,7 +77,7 @@ function App() {
             <h2 className='carousel-title'> Unsere Topseller</h2>
           </header>
           <Carousel carouselClass="long-carousel" controlsClass="long-controls" longCarousel>
-            {longCarousel1Data.map(item => <LongCarouselCard item={item} /> )}
+            {longCarousel1Data.map((item, idx) => <LongCarouselCard key={idx} item={item} /> )}
           </Carousel>
         </section>
 
@@ -88,7 +86,7 @@ function App() {
             <h2> Highlights für Sie </h2>
           </header>
           <Gallery>
-            {gallery1Data.map(item => <GalleryCard item={item} /> )}
+            {gallery1Data.map((item, idx) => <GalleryCard key={idx} item={item} /> )}
           </Gallery>
         </section>
 
@@ -97,7 +95,7 @@ function App() {
             <h2 className='carousel-title'> Unsere Empfhehlungen</h2>
           </header>
           <Carousel carouselClass="long-carousel" controlsClass="long-controls" longCarousel>
-            {longCarousel1Data.map(item => <LongCarouselCard item={item} /> )}
+            {longCarousel1Data.map((item, idx) => <LongCarouselCard key={idx} item={item} /> )}
           </Carousel>
         </section>
 
@@ -199,27 +197,27 @@ function App() {
                   <li>
                     <div className='flex-container' >
                       <FontAwesomeIcon icon={faCommentDots} className="service-inner-icon" />
-                      <p>
+                      <div>
                         Fragen und Antworten<br/>
                         <a className='flex-container' href='http://localhost:3000/'>
                           <WithSlideInBorder style={"2px solid rgb(204, 203, 203)"}>
                             <p> <FontAwesomeIcon icon={faAngleRight} /> Mehr erfahren</p>
                           </WithSlideInBorder>
                         </a>
-                      </p>
+                      </div>
                     </div>
                   </li>
                   <li>
                     <div className='flex-container' >
                       <FontAwesomeIcon icon={faFilePen} className="service-inner-icon" />
-                      <p>
+                      <div>
                         Schreiben Sie Uns<br/>
                         <a className='flex-container' href='http://localhost:3000/'>
                           <WithSlideInBorder style={"2px solid rgb(204, 203, 203)"}>
                             <p> <FontAwesomeIcon icon={faAngleRight} /> Mehr erfahren</p>
                           </WithSlideInBorder>
                         </a>
-                      </p>
+                      </div>
                     </div>
                   </li>
 
@@ -293,7 +291,7 @@ function App() {
                       <FontAwesomeIcon className='contact-icon' icon={faEnvelope} />
                     </a>
                   </WithSlideInBorder>
-                </div>
+                </div> 
               </div>
               <div className='split no-margin'>
                 <div>
@@ -319,7 +317,7 @@ export default App;
 const carousel1Data = [
   {
     link: "http://localhost:3000/",
-    image: ["https://i.imgur.com/LzavDa1.png", "alt here"],
+    image: ["./images/cLZv0oE.webp", "alt here"],
     info: ["Yep info"],
     preTitle: "NUR BIS 27.04., 19:59 UHR",
     title: "WOW TITLE",
@@ -328,7 +326,7 @@ const carousel1Data = [
   },
   {
     link: "http://localhost:3000/",
-    image: ["https://i.imgur.com/2bPhSZM.jpg", "alt here 2"],
+    image: ["./images/2bPhSZM.webp", "alt here 2"],
     info: ["Yep info", "Another one"],
     preTitle: "Nur bis Gestern",
     title: "WOW TITLE",
@@ -337,7 +335,7 @@ const carousel1Data = [
   },
   { 
     link: "http://localhost:3000/",
-    image: ["https://i.imgur.com/vZYA0EH.jpg", "alt here 3"],
+    image: ["./images/vZYA0EH.webp", "alt here 3"],
     info: [],
     preTitle: "Shark.",
     title: "Still a title",
@@ -416,7 +414,7 @@ const longCarousel1Data = [
   {
     brand: "LEGO",
     name: "Super Mario: Abenteuer mit Luigi – Starterset Bauset, Mehrfarbig",
-    image: "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_83355063/fee_786_587_png",
+    image: "./images/2022-04-29 15_51_43-React App.webp",
     link: "http://localhost:3000/",
     avgScore: 5,
     totalScores: 45,
@@ -427,7 +425,7 @@ const longCarousel1Data = [
   {
     brand: "LG",
     name: "F4WV708P1E Waschmaschine (8 kg, 1360 U/Min., A)",
-    image: "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_80132324/fee_786_587_png",
+    image: "./images/2022-04-29 15_51_53-React App.webp",
     link: "http://localhost:3000/",
     avgScore: Math.random() * 5,
     totalScores: 45,
@@ -438,7 +436,7 @@ const longCarousel1Data = [
   {
     brand: "APPLE",
     name: "iPhone 13 Pro Max 128 GB Graphit Dual SIM",
-    image: "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_87346099/fee_786_587_png",
+    image: "./images/2022-04-29 15_52_00-React App.webp",
     link: "http://localhost:3000/",
     avgScore: Math.random() * 5,
     totalScores: 45,
@@ -449,7 +447,7 @@ const longCarousel1Data = [
   {
     brand: "LG",
     name: "OLED65B19LA OLED TV (Flat, 65 Zoll / 164 cm, UHD 4K, SMART TV, webOS 6.0 mit LG ThinQ)",
-    image: "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_89256503/fee_786_587_png",
+    image: "./images/2022-04-29 15_52_07-React App.webp",
     link: "http://localhost:3000/",
     avgScore: Math.random() * 5,
     totalScores: 45,
@@ -460,7 +458,7 @@ const longCarousel1Data = [
   {
     brand: "APPLE",
     name: "AirPods (3. Generation mit MagSafe Ladecase), In-ear Kopfhörer Bluetooth Weiß",
-    image: "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_88185475/fee_786_587_png",
+    image: "./images/2022-04-29 15_52_15-React App.webp",
     link: "http://localhost:3000/",
     avgScore: Math.random() * 5,
     totalScores: 45,
@@ -471,7 +469,7 @@ const longCarousel1Data = [
   {
     brand: "APPLE",
     name: "iPad Wi-Fi (9. Generation 2021), Tablet, 64 GB, 10,2 Zoll, Silber",
-    image: "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_87259955/fee_786_587_png",
+    image: "./images/2022-04-29 15_52_21-React App.webp",
     link: "http://localhost:3000/",
     avgScore: Math.random() * 5,
     totalScores: 45,
@@ -482,7 +480,7 @@ const longCarousel1Data = [
   {
     brand: "NINTENDO",
     name: "Switch Neon-Rot/Neon-Blau (neue Edition)",
-    image: "https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-82086848/fee_786_587_png",
+    image: "./images/2022-04-29 15_52_29-React App.webp",
     link: "http://localhost:3000/",
     avgScore: Math.random() * 5,
     totalScores: 45,
@@ -493,7 +491,7 @@ const longCarousel1Data = [
   {
     brand: "SAMSUNG",
     name: "Galaxy A52s 5G 128 GB Awesome Black Dual SIM",
-    image: "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_86537177/fee_786_587_png",
+    image: "./images/2022-04-29 15_52_35-React App.webp",
     link: "http://localhost:3000/",
     avgScore: Math.random() * 5,
     totalScores: 45,
@@ -504,7 +502,7 @@ const longCarousel1Data = [
   {
     brand: "LG",
     name: "GBP62DSNCC Kühlgefrierkombination (C, 2030 mm hoch, Dark Graphite)",
-    image: "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_84550814/fee_786_587_png",
+    image: "./images/2022-04-29 15_52_39-React App.webp",
     link: "http://localhost:3000/",
     avgScore: Math.random() * 5,
     totalScores: 45,
@@ -515,7 +513,7 @@ const longCarousel1Data = [
   {
     brand: "LG",
     name: "65QNED919PA MiniLED TV (Flat, 65 Zoll / 164 cm, UHD 4K, SMART TV, webOS 6.0 mit LG ThinQ)",
-    image: "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_84473764/fee_786_587_png",
+    image: "./images/2022-04-29 15_52_45-React App.webp",
     link: "http://localhost:3000/",
     avgScore: Math.random() * 5,
     totalScores: 45,
@@ -526,7 +524,7 @@ const longCarousel1Data = [
   {
     brand: "LG",
     name: "OLED65C17LB OLED TV (Flat, 65 Zoll / 164 cm, UHD 4K, SMART TV, webOS 6.0 mit LG ThinQ)",
-    image: "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_82628798/fee_786_587_png",
+    image: "./images/2022-04-29 15_52_52-React App.webp",
     link: "http://localhost:3000/",
     avgScore: Math.random() * 5,
     totalScores: 45,
@@ -537,7 +535,7 @@ const longCarousel1Data = [
   {
     brand: "NINTENDO",
     name: "Switch (OLED-Modell) Weiss",
-    image: "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_85525283/fee_786_587_png",
+    image: "./images/2022-04-29 15_53_00-React App.webp",
     link: "http://localhost:3000/",
     avgScore: Math.random() * 5,
     totalScores: 45,
@@ -548,7 +546,7 @@ const longCarousel1Data = [
   {
     brand: "APPLE",
     name: "MacBook Air (M1,2020) MGN63D/A, Notebook mit 13,3 Zoll Display, 8 GB RAM, 256 GB SSD, M1 GPU, Space Grau",
-    image: "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_78963800/fee_786_587_png",
+    image: "./images/2022-04-29 15_53_09-React App.webp",
     link: "http://localhost:3000/",
     avgScore: Math.random() * 5,
     totalScores: 45,
@@ -559,7 +557,7 @@ const longCarousel1Data = [
   {
     brand: "APPLE",
     name: "iPhone 13 128 GB Mitternacht Dual SIM",
-    image: "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_87346072/fee_786_587_png",
+    image: "./images/2022-04-29 15_53_16-React App.webp",
     link: "http://localhost:3000/",
     avgScore: Math.random() * 5,
     totalScores: 45,
@@ -570,7 +568,7 @@ const longCarousel1Data = [
   {
     brand: "Nintendo",
     name: "Switch Sports - [Nintendo Switch]",
-    image: "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_92754844/fee_786_587_png",
+    image: "./images/2022-04-29 15_53_23-React App.webp",
     link: "http://localhost:3000/",
     avgScore: Math.random() * 5,
     totalScores: 45,
@@ -581,7 +579,7 @@ const longCarousel1Data = [
   {
     brand: "SAMSUNG",
     name: "GU43AU7199UXZG LED TV (Flat, 43 Zoll / 108 cm, UHD 4K, SMART TV)",
-    image: "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_85840158/fee_786_587_png",
+    image: "./images/2022-04-29 15_53_30-React App.webp",
     link: "http://localhost:3000/",
     avgScore: Math.random() * 5,
     totalScores: 45,
@@ -592,7 +590,7 @@ const longCarousel1Data = [
   {
     brand: "SAMSUNG",
     name: "Galaxy A53 5G 128 GB Awesome Black Dual SIM",
-    image: "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_92379434/fee_786_587_png",
+    image: "./images/2022-04-29 15_53_37-React App.webp",
     link: "http://localhost:3000/",
     avgScore: Math.random() * 5,
     totalScores: 45,
@@ -603,7 +601,7 @@ const longCarousel1Data = [
   {
     brand: "ROBOROCK",
     name: "S7 MaxV Saugroboter",
-    image: "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_91644879/fee_786_587_png",
+    image: "./images/2022-04-29 15_53_47-React App.webp",
     link: "http://localhost:3000/",
     avgScore: Math.random() * 5,
     totalScores: 45,
@@ -614,18 +612,7 @@ const longCarousel1Data = [
   {
     brand: "SAMSUNG",
     name: "Galaxy Watch4, BT, 40 mm Smartwatch Aluminium Fluorkautschuk, S/M, Pink Gold",
-    image: "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_87346072/fee_786_587_png",
-    link: "http://localhost:3000/",
-    avgScore: Math.random() * 5,
-    totalScores: 45,
-    uvp: 178,
-    price: 149.58,
-    info: [],
-  },
-  {
-    brand: "SAMSUNG",
-    name: "Galaxy Watch4, BT, 40 mm Smartwatch Aluminium Fluorkautschuk, S/M, Pink Gold",
-    image: "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_87346072/fee_786_587_png",
+    image: "./images/2022-04-29 15_53_58-React App.webp",
     link: "http://localhost:3000/",
     avgScore: Math.random() * 5,
     totalScores: 45,

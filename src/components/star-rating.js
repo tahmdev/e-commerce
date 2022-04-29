@@ -14,13 +14,13 @@ const StarRating = ({max, avgScore, totalScores}) => {
     <div className="star-rating-wrapper" >
       <div className="stars">
         {
-          [...Array(max).keys()].map(item => <FontAwesomeIcon icon={faStar}  />)
+          [...Array(max).keys()].map(item => <FontAwesomeIcon key={item} icon={faStar}  />)
         }
         <span className='small-text' > ({totalScores}) </span>
       </div>
       <div className='stars-fill' style={{width: `${percentFill}%`}}>
         {
-          [...Array(max).keys()].map(item => <FontAwesomeIcon icon={faStar}  />)
+          [...Array(max).keys()].map(item => <FontAwesomeIcon key={item} icon={faStar}  />)
         }
       </div>
       
