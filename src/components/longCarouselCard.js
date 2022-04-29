@@ -11,12 +11,23 @@ const LongCarouselCard = ({item}) => {
 
   return(
     <a className="long-carousel-card-wrapper lift" href={item.link} >
-      <img src={item.image} />
+      {item.info && <Info array={item.info} color="red" classes="top" />}
+      <img src={item.image} aria-hidden="true" />
       <StarRating avgScore={item.avgScore} max={5} totalScores={item.totalScores} />
       <p> <span className="bold" > {item.brand} </span> {item.name} </p>
-      {sale.current && <span className="bold uvp"> UVP <span className="bold strikethrough"> {item.uvp} </span> </span> }
-      <span className={`bold ${sale.current ? "red-text" : null}`}> {` ${forceDecimal(item.price)}`} </span>
-      {item.info && <Info array={item.info} color="red" classes="top" />}
+      
+      <div aria-label={`Erhältlich für ${item.price}€ ${sale.current ? "statt" + item.uvp + "€" : ""}`}>
+        <p aria-hidden="true" >
+          {sale.current &&
+          <>
+            <span className="bold uvp"> UVP</span>  
+            <span className="bold strikethrough uvp"> {item.uvp} </span>
+          </>
+          }
+          <span className={`bold ${sale.current ? "red-text" : null}`}> {` ${forceDecimal(item.price)}`} </span>
+        </p>
+      </div>
+      
     </a>
   )
 }

@@ -551,7 +551,7 @@ section{
 
 .long-carousel-card-wrapper{
   width: 250px;
-  height: 355px;
+  height: 360px;
   padding: 1rem;
   border: 1px solid rgb(199, 199, 199);
   display: block;
@@ -562,7 +562,7 @@ section{
   }
 .long-carousel-card-wrapper img {
   width: 250px;
-  margin: 2rem auto 1rem auto;
+  margin: 0 auto 1rem auto;
   display: block;
 }
 .long-carousel-card-wrapper p {
@@ -580,7 +580,8 @@ section{
   text-decoration:line-through;
 }
 .uvp{
-  padding-right: 0.4rem;
+  display: inline-block;
+  padding-right: 0.25rem;
 }
 .red-text{
   color:red;
@@ -647,6 +648,9 @@ section{
   width: fit-content;
   position: relative;
 }
+.rating-counter{
+  position: absolute;
+}
 .stars-fill{
   color: red;
   overflow: hidden;
@@ -656,6 +660,7 @@ section{
   top: 0;
 }
 .stars{
+  display: inline-block;
   color:rgb(151, 151, 151);
 }
 .small-text{

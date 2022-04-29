@@ -77,7 +77,7 @@ const Carousel = ({children, autoScroll, carouselClass , carouselItemClass, cont
       </ul>
       
     </div>
-    <div className={`flex-container carousel-controls ${controlsClass}`}>
+    <div className={`flex-container carousel-controls ${controlsClass}`} aria-hidden="true"  >
         <div className="dot-wrapper">
           {
             children.map((item, idx) => {
@@ -89,7 +89,7 @@ const Carousel = ({children, autoScroll, carouselClass , carouselItemClass, cont
             })
           }
         </div>
-        <div className={`button-wrapper`} >
+        <div  className={`button-wrapper`} >
           <button className="carousel-navigation" onClick={prevPage} disabled={carouselRef.current ? currentPosPxl <= 25 : true} > 
             <FontAwesomeIcon icon={faAngleLeft} />
           </button>
