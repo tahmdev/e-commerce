@@ -56,16 +56,16 @@ const Header = ({selectedMarkt, setSelectedMarkt}) => {
 
         <div className="flex-container header-bottom">
           <div className='flex-container'>
-              <button className='burger' onClick={() => setSideBarVisible(true)}>
+              <button className='burger' onClick={() => setSideBarVisible(true)} aria-controls="sidebar-wrapper" aria-expanded={sideBarVisilbe}  >
                 <FontAwesomeIcon icon={faBars}/>
                 <span className='large-only'> Alle Kategorien</span>
               </button>
-            <a href="http://localhost:3000/" >
-              <img src='./logo.png' className='logo'/>
+            <a href="http://localhost:3000/" aria-label='Zurück zur homepage' >
+              <img src='./logo.png' className='logo' alt='logo' />
             </a>
           </div>
           <div className='flex-container icon-link-wrapper'>
-            <PopupButton popupClasses="login-button-popup" >
+            <PopupButton aria-label="Login button" popupClasses="login-button-popup" >
               <>
                 <FontAwesomeIcon icon={faUser} className="header-icon-link"/>
               </>
@@ -78,7 +78,7 @@ const Header = ({selectedMarkt, setSelectedMarkt}) => {
                 </a>
               </>
             </PopupButton>
-            <a href="http://localhost:3000/">
+            <a href="http://localhost:3000/" aria-label='Einkaufswagen' >
               <FontAwesomeIcon icon={faCartShopping} className="header-icon-link"/>
             </a>
           </div>
@@ -89,12 +89,11 @@ const Header = ({selectedMarkt, setSelectedMarkt}) => {
               <span> {selectedMarkt || "Kein Markt Ausgewählt"} </span>
             </>
             <>
-              <span className="bold" >Wählen Sie einen Markt</span>
+              <span  className="bold" >Wählen Sie einen Markt</span>
               <Searchbar placeholder={"PLZ"} classes={"popup-button-search"} />
               <a href='http://localhost:3000/'> Alle Märkte anzeigen</a>
             </>
           </PopupButton>
-
         </div>
       </div>
     </header>

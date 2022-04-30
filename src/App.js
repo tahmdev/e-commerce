@@ -268,7 +268,7 @@ function App() {
             <div className='accordion-flex'>
               <div className='split'>
                 <div>
-                  <a href='http://localhost:3000/' > <img className='logo' src='logo.png' /> </a>
+                  <a href='http://localhost:3000/' > <img className='logo' src='logo.png' alt="logo" /> </a>
                 </div>
                 <div className='flex-container'>
                   <WithSlideInBorder style={"2px solid orange"} >
@@ -297,9 +297,9 @@ function App() {
                 <div>
                 <p> Laden Sie unsere App herunter</p>
                   <div className='flex-container wrap' >
-                    <a href='http://localhost:3000/' > <img className='logo' src='logo.png' /> </a>
-                    <a href='http://localhost:3000/' > <img className='logo' src='logo.png' /> </a>
-                    <a href='http://localhost:3000/' > <img className='logo' src='logo.png' /> </a>
+                    <a href='http://localhost:3000/' > <img className='logo' src='logo.png' alt="logo" /> </a>
+                    <a href='http://localhost:3000/' > <img className='logo' src='logo.png' alt="logo" /> </a>
+                    <a href='http://localhost:3000/' > <img className='logo' src='logo.png' alt="logo" /> </a>
                   </div>
                 </div>
               </div>

@@ -16,7 +16,7 @@ const LongCarouselCard = ({item}) => {
       <StarRating avgScore={item.avgScore} max={5} totalScores={item.totalScores} />
       <p> <span className="bold" > {item.brand} </span> {item.name} </p>
       
-      <div aria-label={`Erhältlich für ${item.price}€ ${sale.current ? "statt" + item.uvp + "€" : ""}`}>
+      <div role="link" aria-label={`Erhältlich für ${item.price}€ ${sale.current ? "statt" + item.uvp + "€" : ""}`}>
         <p aria-hidden="true" >
           {sale.current &&
           <>

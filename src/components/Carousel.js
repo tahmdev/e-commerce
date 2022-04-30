@@ -77,12 +77,12 @@ const Carousel = ({children, autoScroll, carouselClass , carouselItemClass, cont
       </ul>
       
     </div>
-    <div className={`flex-container carousel-controls ${controlsClass}`} aria-hidden="true"  >
+    <div className={`flex-container carousel-controls ${controlsClass}`} >
         <div className="dot-wrapper">
           {
             children.map((item, idx) => {
               return (
-                <button className='carousel-dot-button' key={idx} onClick={() => jumpTo(idx)} style={currentPosDot === idx ? {color: "red", fontSize: "1rem"} : null} >
+                <button className='carousel-dot-button' key={idx} onClick={() => jumpTo(idx)} style={currentPosDot === idx ? {color: "red", fontSize: "1rem"} : null} aria-hidden="true" >
                   <FontAwesomeIcon icon={faCircle}/>
                 </button>
               )
@@ -90,10 +90,10 @@ const Carousel = ({children, autoScroll, carouselClass , carouselItemClass, cont
           }
         </div>
         <div  className={`button-wrapper`} >
-          <button className="carousel-navigation" onClick={prevPage} disabled={carouselRef.current ? currentPosPxl <= 25 : true} > 
+          <button className="carousel-navigation" onClick={prevPage} disabled={carouselRef.current ? currentPosPxl <= 25 : true} aria-hidden="true" > 
             <FontAwesomeIcon icon={faAngleLeft} />
           </button>
-          <button className={`carousel-navigation`} onClick={nextPage} disabled={carouselRef.current ? isLastPage(carouselRef.current) : false} > 
+          <button className={`carousel-navigation`} onClick={nextPage} disabled={carouselRef.current ? isLastPage(carouselRef.current) : false} aria-hidden="true" > 
             <FontAwesomeIcon icon={faAngleRight} />
           </button>
         </div>

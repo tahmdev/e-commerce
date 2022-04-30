@@ -11,19 +11,25 @@ const Sidebar = ({setShow, setShowMeinMarkt}) => {
     setNewPage(
         <>
           <ul className="Alle-Kategorien" role="menu">
-            <li className="mein-markt" > <button onClick={() => {setShowMeinMarkt(true); handleHide() }}> Mein Markt</button> </li>
+            <li className="mein-markt small-only" > <button onClick={() => {setShowMeinMarkt(true); handleHide() }}> Mein Markt</button> </li>
             <li role="none"> <h4> Alle Kategorien </h4></li>
             <CategoryList setNewPage={setNewPage} data={dummyData.subs} setShowMeinMarkt={setShowMeinMarkt} handleHide={handleHide} />
           </ul>
         </>
     )
   }, [])
-
-  //Hide sidebar on click outside
+  
   useEffect(() => {
+    //Focus on close button for screen-readers
+    document.getElementById("close-sidebar-btn").focus()
+    //Hide sidebar on click outside
     document.addEventListener("mousedown", handleClick)
     return () => document.removeEventListener("mousedown", handleClick)
   }, [])
+
+  useEffect(() => {
+    if (document.getElementById("back-btn")) document.getElementById("back-btn").focus()
+  }, [newPage])
 
   const handleClick = (e) => {
     if (ref && !ref.current.contains(e.target)) handleHide()
@@ -39,10 +45,10 @@ const Sidebar = ({setShow, setShowMeinMarkt}) => {
 
   return(
     <div id="background" className="background">
-      <div id="sidebar-wrapper" className="sidebar-wrapper" ref={ref}>
+      <div id="sidebar-wrapper" className="sidebar-wrapper" ref={ref} >
         <div className="sidebar-top">
           <img src="./logo.png" className='logo'/>
-          <button className="close-sidebar-btn" aria-label="Alle Kategorien schließen" onClick={handleHide}>
+          <button id="close-sidebar-btn" className="close-sidebar-btn" aria-label="Alle Kategorien schließen" onClick={handleHide} autofocus>
             <FontAwesomeIcon icon={faXmark}/>
           </button>
       </div>
@@ -75,12 +81,14 @@ const CategoryList = ({data, setNewPage, setShowMeinMarkt, handleHide }) => {
     return result
   }
   const nextPage = (data) => {
+    // Move focus back to top 
+
     let prevPage = getParent(dummyData, data.name)
     if(data.name !== "Übersicht"){
       let page =  <>
                     <ul className="Alle-Kategorien" role="menu" key={data.name} >
                       <li> 
-                        <button className="sidebar-back-button" onClick={() => nextPage(prevPage ? prevPage : dummyData)}>
+                        <button id="back-btn" className="sidebar-back-button" onClick={() => nextPage(prevPage ? prevPage : dummyData)}>
                           {prevPage ? `Zurück zu ${prevPage.name}` : "Zurück zur Übersicht" } 
                         </button>
                       </li>
@@ -92,7 +100,7 @@ const CategoryList = ({data, setNewPage, setShowMeinMarkt, handleHide }) => {
     else{
       let page =  <>
                     <ul className="Alle-Kategorien" role="menu">
-                      <li className="mein-markt" > <button onClick={() => {setShowMeinMarkt(true); handleHide() }} > Mein Markt</button> </li>
+                      <li className="mein-markt small-only" > <button onClick={() => {setShowMeinMarkt(true); handleHide() }} > Mein Markt</button> </li>
                       <li role="none"> <h4> Alle Kategorien </h4></li>
                       <CategoryList setNewPage={setNewPage} data={dummyData.subs} setShowMeinMarkt={setShowMeinMarkt} handleHide={handleHide} />
                     </ul>
@@ -110,7 +118,7 @@ const CategoryList = ({data, setNewPage, setShowMeinMarkt, handleHide }) => {
         }
         return(
           <li>
-            <button onClick={e => nextPage(item, e)} key={item.name} >
+            <button aria-expanded="false" onClick={e => nextPage(item, e)} key={item.name}  >
               <span> {item.name} </span>
               <FontAwesomeIcon icon={faAngleRight}/>
             </button>

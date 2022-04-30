@@ -7,12 +7,11 @@ const StarRating = ({max, avgScore, totalScores}) => {
   let [percentFill, setPercentFill] = useState(0)
   
   useEffect(() => {
-    console.log(avgScore, max, avgScore * 100 / max)
     setPercentFill(avgScore * 100 / max) 
   }, [])
 
   return(
-    <div className="star-rating-wrapper" aria-label={`${avgScore.toFixed(1)} von ${max} Sternen bei ${totalScores} Bewertungen`} >
+    <div className="star-rating-wrapper" role="link" aria-label={`${avgScore.toFixed(1)} von ${max} Sternen bei ${totalScores} Bewertungen`} >
       <div className="stars" aria-hidden="true">
         {
           [...Array(max).keys()].map(item => <FontAwesomeIcon key={item} icon={faStar}  />)

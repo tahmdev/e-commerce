@@ -3,9 +3,8 @@ import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 
-const Popup = ({setShow, children, classes}) => {
+const Popup = ({setShow, children, classes, }) => {
   let ref = React.createRef();
-
   useEffect(() => {
     window.addEventListener("mousedown", handleClick)
     return () => {
