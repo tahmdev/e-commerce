@@ -1,3 +1,8 @@
+# Goal of this project
+I copied the design of a popular electronics retailer's landing page in order to improve at CSS, accessiblity and reusable components. 
+
+While this project caused me to restructure my workflow in the following projects to allow for cleaner CSS, I did not go back and rewrite this projects CSS
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
