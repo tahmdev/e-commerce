@@ -1,3 +1,4 @@
+https://tahmdev.github.io/e-commerce/
 # Goal of this project
 I copied the design of a popular electronics retailer's landing page in order to improve at CSS, accessiblity and reusable components. 
 
