@@ -374,8 +374,7 @@ section{
 .carousel-controls{
   justify-content: space-between;
   align-items: center;
-  margin: 0 1rem;
-  margin-top: -2rem !important;
+  margin: 0 2rem;
   max-width: 1300px;
 }
 .dot-wrapper{
