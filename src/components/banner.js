@@ -1,12 +1,13 @@
 const Banner = () => {
-
   return (
-    <a href="http://localhost:3000/" className="banner">
+    <a href="https://tahmdev.github.io/e-commerce/" className="banner">
       <div>
         <h2>Jetzt täglich neu: Unser Deal des Tages</h2>
-        <button className="responsive-button" tabIndex={-1} aria-hidden="true"  > Zum Angebot </button>
+        <button className="responsive-button" tabIndex={-1} aria-hidden="true">
+          Zum Angebot
+        </button>
       </div>
     </a>
-  )
-}
-export default Banner
+  );
+};
+export default Banner;
