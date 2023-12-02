@@ -74,6 +74,7 @@ const Header = ({ selectedMarkt, setSelectedMarkt }) => {
               onClick={() => setSideBarVisible(true)}
               aria-controls="sidebar-wrapper"
               aria-expanded={sideBarVisilbe}
+              aria-label="Alle Kategorien"
             >
               <FontAwesomeIcon icon={faBars} />
               <span className="large-only"> Alle Kategorien</span>

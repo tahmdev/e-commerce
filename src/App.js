@@ -1,64 +1,104 @@
-import './App.css';
-import Header from './components/Header';
-import Banner from './components/banner';
-import Carousel from './components/Carousel';
-import CarouselCard from './components/carousel-card';
-import Gallery from './components/gallery';
-import GalleryCard from './components/gallery-card';
-import LongCarouselCard from './components/longCarouselCard';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleRight, faEnvelope, faCommentDots, faFilePen} from '@fortawesome/free-solid-svg-icons'
-import Accordion from './components/Accordion';
-import WithSlideInBorder from './components/withSlideInBorder';
-import { useState } from 'react';
+import "./App.css";
+import Header from "./components/Header";
+import Banner from "./components/banner";
+import Carousel from "./components/Carousel";
+import CarouselCard from "./components/carousel-card";
+import Gallery from "./components/gallery";
+import GalleryCard from "./components/gallery-card";
+import LongCarouselCard from "./components/longCarouselCard";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faAngleRight,
+  faEnvelope,
+  faCommentDots,
+  faFilePen,
+} from "@fortawesome/free-solid-svg-icons";
+import Accordion from "./components/Accordion";
+import WithSlideInBorder from "./components/withSlideInBorder";
+import { useState } from "react";
 
 function App() {
-  let [selectedMarkt, setSelectedMarkt] = useState()
-  
+  let [selectedMarkt, setSelectedMarkt] = useState();
+
   return (
     <div className="App">
-      <Header selectedMarkt={selectedMarkt} setSelectedMarkt={setSelectedMarkt} />
-      <section className='banner-section' >
+      <Header
+        selectedMarkt={selectedMarkt}
+        setSelectedMarkt={setSelectedMarkt}
+      />
+      <section className="banner-section">
         <Banner />
       </section>
-      <Carousel autoScroll={9000} >
-        {carousel1Data.map((item, idx) => <CarouselCard key={idx} item={item}  /> )}
+      <Carousel autoScroll={9000}>
+        {carousel1Data.map((item, idx) => (
+          <CarouselCard key={idx} item={item} />
+        ))}
       </Carousel>
-      
+
       <main>
         <section>
           <header>
             <h2> Unsere beliebtesten Kategorien</h2>
           </header>
           <Gallery>
-            {gallery1Data.map((item, idx) => <GalleryCard key={idx} item={item} /> )}
+            {gallery1Data.map((item, idx) => (
+              <GalleryCard key={idx} item={item} />
+            ))}
           </Gallery>
         </section>
-        
+
         <section>
           <header>
-            <h2 className='carousel-title' > Aus der Werbung </h2>
+            <h2 className="carousel-title"> Aus der Werbung </h2>
           </header>
-          <Carousel carouselClass="secondary-carousel" controlsClass="secondary-carousel-controls" autoScroll={9000} >
-            {carousel1Data.map((item, idx) => <CarouselCard key={idx} item={item} classes="secondary-card" infoClasses="top" /> )}
+          <Carousel
+            carouselClass="secondary-carousel"
+            controlsClass="secondary-carousel-controls"
+            autoScroll={9000}
+          >
+            {carousel1Data.map((item, idx) => (
+              <CarouselCard
+                key={idx}
+                item={item}
+                classes="secondary-card"
+                infoClasses="top"
+              />
+            ))}
           </Carousel>
         </section>
-        
-        <section className='long-section'>
+
+        <section className="long-section">
           <header>
-            <h2 className='carousel-title'> Unsere Tageshighlights </h2>
+            <h2 className="carousel-title"> Unsere Tageshighlights </h2>
           </header>
-          <Carousel carouselClass="long-carousel" controlsClass="long-controls" longCarousel>
-            {longCarousel1Data.map((item, idx) => <LongCarouselCard key={idx} item={item} /> )}
+          <Carousel
+            carouselClass="long-carousel"
+            controlsClass="long-controls"
+            longCarousel
+          >
+            {longCarousel1Data.map((item, idx) => (
+              <LongCarouselCard key={idx} item={item} />
+            ))}
           </Carousel>
         </section>
 
         <section>
           <header>
-            <h2 className='carousel-title'> Top Angebote für Sie </h2>
+            <h2 className="carousel-title"> Top Angebote für Sie </h2>
           </header>
-          <Carousel carouselClass="secondary-carousel" controlsClass="secondary-carousel-controls" autoScroll={9000} >
-            {carousel1Data.map((item, idx) => <CarouselCard key={idx} item={item} classes="secondary-card" infoClasses="top" /> )}
+          <Carousel
+            carouselClass="secondary-carousel"
+            controlsClass="secondary-carousel-controls"
+            autoScroll={9000}
+          >
+            {carousel1Data.map((item, idx) => (
+              <CarouselCard
+                key={idx}
+                item={item}
+                classes="secondary-card"
+                infoClasses="top"
+              />
+            ))}
           </Carousel>
         </section>
 
@@ -67,16 +107,24 @@ function App() {
             <h2> Die besten Angebote & Aktionen</h2>
           </header>
           <Gallery>
-            {gallery2Data.map((item, idx) => <GalleryCard key={idx} item={item} /> )}
+            {gallery2Data.map((item, idx) => (
+              <GalleryCard key={idx} item={item} />
+            ))}
           </Gallery>
         </section>
 
-        <section className='long-section'>
+        <section className="long-section">
           <header>
-            <h2 className='carousel-title'> Unsere Topseller</h2>
+            <h2 className="carousel-title"> Unsere Topseller</h2>
           </header>
-          <Carousel carouselClass="long-carousel" controlsClass="long-controls" longCarousel>
-            {longCarousel1Data.map((item, idx) => <LongCarouselCard key={idx} item={item} /> )}
+          <Carousel
+            carouselClass="long-carousel"
+            controlsClass="long-controls"
+            longCarousel
+          >
+            {longCarousel1Data.map((item, idx) => (
+              <LongCarouselCard key={idx} item={item} />
+            ))}
           </Carousel>
         </section>
 
@@ -85,233 +133,468 @@ function App() {
             <h2> Highlights für Sie </h2>
           </header>
           <Gallery>
-            {gallery1Data.map((item, idx) => <GalleryCard key={idx} item={item} /> )}
+            {gallery1Data.map((item, idx) => (
+              <GalleryCard key={idx} item={item} />
+            ))}
           </Gallery>
         </section>
 
-        <section className='long-section'>
+        <section className="long-section">
           <header>
-            <h2 className='carousel-title'> Unsere Empfhehlungen</h2>
+            <h2 className="carousel-title"> Unsere Empfhehlungen</h2>
           </header>
-          <Carousel carouselClass="long-carousel" controlsClass="long-controls" longCarousel>
-            {longCarousel1Data.map((item, idx) => <LongCarouselCard key={idx} item={item} /> )}
+          <Carousel
+            carouselClass="long-carousel"
+            controlsClass="long-controls"
+            longCarousel
+          >
+            {longCarousel1Data.map((item, idx) => (
+              <LongCarouselCard key={idx} item={item} />
+            ))}
           </Carousel>
         </section>
 
         <section>
           <h2>Unsere Service Highlights für Sie</h2>
-          <div className='split'>
-            <div className='service-box'>
+          <div className="split">
+            <div className="service-box">
               <h3>Wunschprodukt einfach finanzieren</h3>
-              <p>Ein Produkt kaufen oder lieber doch finanzieren? Lange Laufzeiten, 0% effektiver Jahreszins** und alles jederzeit unkompliziert online abschließbar.</p>
-              <a className='flex-container' href='https://tahmdev.github.io/e-commerce/'>
-                <FontAwesomeIcon className="red-text block" icon={faAngleRight} />
+              <p>
+                Ein Produkt kaufen oder lieber doch finanzieren? Lange
+                Laufzeiten, 0% effektiver Jahreszins** und alles jederzeit
+                unkompliziert online abschließbar.
+              </p>
+              <a
+                className="flex-container"
+                href="https://tahmdev.github.io/e-commerce/"
+              >
+                <FontAwesomeIcon
+                  className="red-text block"
+                  icon={faAngleRight}
+                />
                 <WithSlideInBorder style={"2px solid rgb(204, 203, 203)"}>
                   <p>Mehr erfahren</p>
                 </WithSlideInBorder>
               </a>
             </div>
-            <div className='service-box'>
+            <div className="service-box">
               <h3>Mieten statt kaufen mit Grover!</h3>
-              <p>Viele Produkte bei MediaMarkt können mit unserem Kooperationspartner Grover zu flexiblen Laufzeiten gemietet werden.</p>
-              <a className='flex-container' href='https://tahmdev.github.io/e-commerce/'>
-                <FontAwesomeIcon className="red-text block" icon={faAngleRight} />
+              <p>
+                Viele Produkte bei MediaMarkt können mit unserem
+                Kooperationspartner Grover zu flexiblen Laufzeiten gemietet
+                werden.
+              </p>
+              <a
+                className="flex-container"
+                href="https://tahmdev.github.io/e-commerce/"
+              >
+                <FontAwesomeIcon
+                  className="red-text block"
+                  icon={faAngleRight}
+                />
                 <WithSlideInBorder style={"2px solid rgb(204, 203, 203)"}>
                   <p>Mehr erfahren</p>
                 </WithSlideInBorder>
               </a>
             </div>
-            <div className='service-box'>
+            <div className="service-box">
               <h3>Lieferung / Marktabholung</h3>
-              <p>Lassen Sie sich Ihre Bestellung liefern oder holen Sie sie ganz bequem und kostenlos in einem von über 260 Märkten ab.</p>
-              <a className='flex-container' href='https://tahmdev.github.io/e-commerce/'>
-                <FontAwesomeIcon className="red-text block" icon={faAngleRight} />
+              <p>
+                Lassen Sie sich Ihre Bestellung liefern oder holen Sie sie ganz
+                bequem und kostenlos in einem von über 260 Märkten ab.
+              </p>
+              <a
+                className="flex-container"
+                href="https://tahmdev.github.io/e-commerce/"
+              >
+                <FontAwesomeIcon
+                  className="red-text block"
+                  icon={faAngleRight}
+                />
                 <WithSlideInBorder style={"2px solid rgb(204, 203, 203)"}>
                   <p>Mehr erfahren</p>
                 </WithSlideInBorder>
               </a>
             </div>
           </div>
-          <button className='responsive-button btn' role="link" > Alle Services entdecken </button>
+          <button className="responsive-button btn" role="link">
+            {" "}
+            Alle Services entdecken{" "}
+          </button>
 
-          <div className='split'>
-          <div className='service-box'>
+          <div className="split">
+            <div className="service-box">
               <h3>Fragen zur Technik?</h3>
-              <p>Technikfreude statt Technikfrust? Die Experten der Deutschen Technikberatung nehmen sich gerne die Zeit, Ihre Fragen zu beantworten.</p>
-              <a className='flex-container' href='https://tahmdev.github.io/e-commerce/'>
-                <FontAwesomeIcon className="red-text block" icon={faAngleRight} />
+              <p>
+                Technikfreude statt Technikfrust? Die Experten der Deutschen
+                Technikberatung nehmen sich gerne die Zeit, Ihre Fragen zu
+                beantworten.
+              </p>
+              <a
+                className="flex-container"
+                href="https://tahmdev.github.io/e-commerce/"
+              >
+                <FontAwesomeIcon
+                  className="red-text block"
+                  icon={faAngleRight}
+                />
                 <WithSlideInBorder style={"2px solid rgb(204, 203, 203)"}>
                   <p>Mehr erfahren</p>
                 </WithSlideInBorder>
               </a>
             </div>
-            <div className='service-box'>
+            <div className="service-box">
               <h3>Noch Fragen? Immer gerne.</h3>
-                <div className='service-inner-flex' >
-                  <FontAwesomeIcon icon={faCommentDots} className="service-inner-icon" />
-                  <p>Hier finden Sie Antworten:<br/>In der <a href='https://tahmdev.github.io/e-commerce/'>Hilfe</a> und bei den <a href='https://tahmdev.github.io/e-commerce/'>Fragen & Antworten</a></p>
-                </div>
-                <div className='service-inner-flex' >
-                  <FontAwesomeIcon icon={faEnvelope} className="service-inner-icon" />
-                  <p>Schreiben Sie uns:<br/>Über unser <a href='https://tahmdev.github.io/e-commerce/'>Kontaktformular</a></p>
-                </div>
+              <div className="service-inner-flex">
+                <FontAwesomeIcon
+                  icon={faCommentDots}
+                  className="service-inner-icon"
+                />
+                <p>
+                  Hier finden Sie Antworten:
+                  <br />
+                  In der{" "}
+                  <a href="https://tahmdev.github.io/e-commerce/">Hilfe</a> und
+                  bei den{" "}
+                  <a href="https://tahmdev.github.io/e-commerce/">
+                    Fragen & Antworten
+                  </a>
+                </p>
+              </div>
+              <div className="service-inner-flex">
+                <FontAwesomeIcon
+                  icon={faEnvelope}
+                  className="service-inner-icon"
+                />
+                <p>
+                  Schreiben Sie uns:
+                  <br />
+                  Über unser{" "}
+                  <a href="https://tahmdev.github.io/e-commerce/">
+                    Kontaktformular
+                  </a>
+                </p>
+              </div>
             </div>
           </div>
         </section>
       </main>
 
       <footer>
-          <section>
-            <div className='grid-container'>
-              <div className='versandpartner'>
-                <span> Unsere versandpartner </span>
-                <div className='flex-container '>
-                  <div className='placeholder' />
-                  <div className='placeholder' />
-                  <div className='placeholder' />
-                </div>
-              </div>
-
-              <div className='einfach-bezahlen'>
-                <span> Einfach bezahlen </span>
-                <div className='flex-container '>
-                  <div className='placeholder' />
-                  <div className='placeholder' />
-                  <div className='placeholder' />
-                  <div className='placeholder' />
-                  <div className='placeholder' />
-                  <div className='placeholder' />
-                  <div className='placeholder' />
-                  <div className='placeholder' />
-                  <div className='placeholder' />
-                  <div className='placeholder' />
-                  <div className='placeholder' />
-                </div>
+        <section>
+          <div className="grid-container">
+            <div className="versandpartner">
+              <span> Unsere versandpartner </span>
+              <div className="flex-container ">
+                <div className="placeholder" />
+                <div className="placeholder" />
+                <div className="placeholder" />
               </div>
             </div>
 
-            <div className='accordion-flex'>
-              <Accordion title="Kontakt">
-                <ul>
-                  <li>
-                    <div className='flex-container' >
-                      <FontAwesomeIcon icon={faCommentDots} className="service-inner-icon" />
-                      <div>
-                        Fragen und Antworten<br/>
-                        <a className='flex-container' href='https://tahmdev.github.io/e-commerce/'>
-                          <WithSlideInBorder style={"2px solid rgb(204, 203, 203)"}>
-                            <p> <FontAwesomeIcon icon={faAngleRight} /> Mehr erfahren</p>
-                          </WithSlideInBorder>
-                        </a>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div className='flex-container' >
-                      <FontAwesomeIcon icon={faFilePen} className="service-inner-icon" />
-                      <div>
-                        Schreiben Sie Uns<br/>
-                        <a className='flex-container' href='https://tahmdev.github.io/e-commerce/'>
-                          <WithSlideInBorder style={"2px solid rgb(204, 203, 203)"}>
-                            <p> <FontAwesomeIcon icon={faAngleRight} /> Mehr erfahren</p>
-                          </WithSlideInBorder>
-                        </a>
-                      </div>
-                    </div>
-                  </li>
-
-                </ul>
-              </Accordion>
-              <Accordion title="Aktuell beliebt">
-                <ul>
-                  <li><a href='https://tahmdev.github.io/e-commerce/'>Laptops</a></li>
-                  <li><a href='https://tahmdev.github.io/e-commerce/'>Apple Watch</a></li>
-                  <li><a href='https://tahmdev.github.io/e-commerce/'>Apple iPad</a></li>
-                  <li><a href='https://tahmdev.github.io/e-commerce/'>PS5 Spiele</a></li>
-                  <li><a href='https://tahmdev.github.io/e-commerce/'>Gartenpflege</a></li>
-                  <li><a href='https://tahmdev.github.io/e-commerce/'>Nintendo Switch</a></li>
-                  <li><a href='https://tahmdev.github.io/e-commerce/'>Gaming PCs</a></li>
-                </ul>
-              </Accordion>
-              <Accordion title="Service">
-                <ul>
-                  <li><a href='https://tahmdev.github.io/e-commerce/'>Alle Service-Leistungen</a></li>
-                  <li><a href='https://tahmdev.github.io/e-commerce/'>Versandinformationen</a></li>
-                  <li><a href='https://tahmdev.github.io/e-commerce/'>MediaMarkt Service</a></li>
-                  <li><a href='https://tahmdev.github.io/e-commerce/'>FAQ</a></li>
-                  <li><a href='https://tahmdev.github.io/e-commerce/'>Altgeräte-Entsorgung</a></li>
-                  <li><a href='https://tahmdev.github.io/e-commerce/'>Affiliate Partnerprogramm</a></li>
-                  <li><a href='https://tahmdev.github.io/e-commerce/'>Geschäftskunden</a></li>
-                  <li><a href='https://tahmdev.github.io/e-commerce/'>Technikberatung</a></li>
-                  <li><a href='https://tahmdev.github.io/e-commerce/'>Geschenkkarte</a></li>
-                  <li><a href='https://tahmdev.github.io/e-commerce/'>Rückgabe/Retoure</a></li>
-                  <li><a href='https://tahmdev.github.io/e-commerce/'>Produktrückruf</a></li>
-                  <li><a href='https://tahmdev.github.io/e-commerce/'>Mietservice</a></li>
-                </ul>
-              </Accordion>
-              <Accordion title="Über uns">
-                <ul>
-                  <li><a href='https://tahmdev.github.io/e-commerce/'>Unternehmen</a></li>
-                  <li><a href='https://tahmdev.github.io/e-commerce/'>Unsere Märkte</a></li>
-                  <li><a href='https://tahmdev.github.io/e-commerce/'>Verkaufen auf mediamarkt.de</a></li>
-                  <li><a href='https://tahmdev.github.io/e-commerce/'>Unsere Marken</a></li>
-                  <li><a href='https://tahmdev.github.io/e-commerce/'>Jobs & Karriere</a></li>
-                  <li><a href='https://tahmdev.github.io/e-commerce/'>Koch-mit.de</a></li>
-                  <li><a href='https://tahmdev.github.io/e-commerce/'>Gamez.de</a></li>
-                  <li><a href='https://tahmdev.github.io/e-commerce/'>MediaMagazin</a></li>
-                  <li><a href='https://tahmdev.github.io/e-commerce/'>Nachhaltigkeit</a></li>
-                  <li><a href='https://tahmdev.github.io/e-commerce/'>Schwachstellen-Offenlegungsprogramm</a></li>
-                </ul>
-              </Accordion>
-            </div>
-            <div className='accordion-flex'>
-              <div className='split'>
-                <div>
-                  <a href='https://tahmdev.github.io/e-commerce/' > <img className='logo' src='logo.png' alt="logo" /> </a>
-                </div>
-                <div className='flex-container'>
-                  <WithSlideInBorder style={"2px solid orange"} >
-                    <a href='https://tahmdev.github.io/e-commerce/'>
-                      <FontAwesomeIcon className='contact-icon' icon={faCommentDots} />
-                    </a>
-                  </WithSlideInBorder>
-                  <WithSlideInBorder style={"2px solid orange"}>
-                    <a href='https://tahmdev.github.io/e-commerce/'>
-                      <FontAwesomeIcon className='contact-icon' icon={faEnvelope} />
-                    </a>
-                  </WithSlideInBorder>
-                  <WithSlideInBorder style={"2px solid orange"}>
-                    <a href='https://tahmdev.github.io/e-commerce/'>
-                      <FontAwesomeIcon className='contact-icon' icon={faEnvelope} />
-                    </a>
-                  </WithSlideInBorder>
-                  <WithSlideInBorder style={"2px solid orange"}>
-                    <a href='https://tahmdev.github.io/e-commerce/'>
-                      <FontAwesomeIcon className='contact-icon' icon={faEnvelope} />
-                    </a>
-                  </WithSlideInBorder>
-                </div> 
+            <div className="einfach-bezahlen">
+              <span> Einfach bezahlen </span>
+              <div className="flex-container ">
+                <div className="placeholder" />
+                <div className="placeholder" />
+                <div className="placeholder" />
+                <div className="placeholder" />
+                <div className="placeholder" />
+                <div className="placeholder" />
+                <div className="placeholder" />
+                <div className="placeholder" />
+                <div className="placeholder" />
+                <div className="placeholder" />
+                <div className="placeholder" />
               </div>
-              <div className='split no-margin'>
-                <div>
-                <p> Laden Sie unsere App herunter</p>
-                  <div className='flex-container wrap' >
-                    <a href='https://tahmdev.github.io/e-commerce/' > <img className='logo' src='logo.png' alt="logo" /> </a>
-                    <a href='https://tahmdev.github.io/e-commerce/' > <img className='logo' src='logo.png' alt="logo" /> </a>
-                    <a href='https://tahmdev.github.io/e-commerce/' > <img className='logo' src='logo.png' alt="logo" /> </a>
+            </div>
+          </div>
+
+          <div className="accordion-flex">
+            <Accordion title="Kontakt">
+              <ul>
+                <li>
+                  <div className="flex-container">
+                    <FontAwesomeIcon
+                      icon={faCommentDots}
+                      className="service-inner-icon"
+                    />
+                    <div>
+                      Fragen und Antworten
+                      <br />
+                      <a
+                        className="flex-container"
+                        href="https://tahmdev.github.io/e-commerce/"
+                      >
+                        <WithSlideInBorder
+                          style={"2px solid rgb(204, 203, 203)"}
+                        >
+                          <p>
+                            {" "}
+                            <FontAwesomeIcon icon={faAngleRight} /> Mehr
+                            erfahren
+                          </p>
+                        </WithSlideInBorder>
+                      </a>
+                    </div>
                   </div>
+                </li>
+                <li>
+                  <div className="flex-container">
+                    <FontAwesomeIcon
+                      icon={faFilePen}
+                      className="service-inner-icon"
+                    />
+                    <div>
+                      Schreiben Sie Uns
+                      <br />
+                      <a
+                        className="flex-container"
+                        href="https://tahmdev.github.io/e-commerce/"
+                      >
+                        <WithSlideInBorder
+                          style={"2px solid rgb(204, 203, 203)"}
+                        >
+                          <p>
+                            {" "}
+                            <FontAwesomeIcon icon={faAngleRight} /> Mehr
+                            erfahren
+                          </p>
+                        </WithSlideInBorder>
+                      </a>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </Accordion>
+            <Accordion title="Aktuell beliebt">
+              <ul>
+                <li>
+                  <a href="https://tahmdev.github.io/e-commerce/">Laptops</a>
+                </li>
+                <li>
+                  <a href="https://tahmdev.github.io/e-commerce/">
+                    Apple Watch
+                  </a>
+                </li>
+                <li>
+                  <a href="https://tahmdev.github.io/e-commerce/">Apple iPad</a>
+                </li>
+                <li>
+                  <a href="https://tahmdev.github.io/e-commerce/">PS5 Spiele</a>
+                </li>
+                <li>
+                  <a href="https://tahmdev.github.io/e-commerce/">
+                    Gartenpflege
+                  </a>
+                </li>
+                <li>
+                  <a href="https://tahmdev.github.io/e-commerce/">
+                    Nintendo Switch
+                  </a>
+                </li>
+                <li>
+                  <a href="https://tahmdev.github.io/e-commerce/">Gaming PCs</a>
+                </li>
+              </ul>
+            </Accordion>
+            <Accordion title="Service">
+              <ul>
+                <li>
+                  <a href="https://tahmdev.github.io/e-commerce/">
+                    Alle Service-Leistungen
+                  </a>
+                </li>
+                <li>
+                  <a href="https://tahmdev.github.io/e-commerce/">
+                    Versandinformationen
+                  </a>
+                </li>
+                <li>
+                  <a href="https://tahmdev.github.io/e-commerce/">
+                    MediaMarkt Service
+                  </a>
+                </li>
+                <li>
+                  <a href="https://tahmdev.github.io/e-commerce/">FAQ</a>
+                </li>
+                <li>
+                  <a href="https://tahmdev.github.io/e-commerce/">
+                    Altgeräte-Entsorgung
+                  </a>
+                </li>
+                <li>
+                  <a href="https://tahmdev.github.io/e-commerce/">
+                    Affiliate Partnerprogramm
+                  </a>
+                </li>
+                <li>
+                  <a href="https://tahmdev.github.io/e-commerce/">
+                    Geschäftskunden
+                  </a>
+                </li>
+                <li>
+                  <a href="https://tahmdev.github.io/e-commerce/">
+                    Technikberatung
+                  </a>
+                </li>
+                <li>
+                  <a href="https://tahmdev.github.io/e-commerce/">
+                    Geschenkkarte
+                  </a>
+                </li>
+                <li>
+                  <a href="https://tahmdev.github.io/e-commerce/">
+                    Rückgabe/Retoure
+                  </a>
+                </li>
+                <li>
+                  <a href="https://tahmdev.github.io/e-commerce/">
+                    Produktrückruf
+                  </a>
+                </li>
+                <li>
+                  <a href="https://tahmdev.github.io/e-commerce/">
+                    Mietservice
+                  </a>
+                </li>
+              </ul>
+            </Accordion>
+            <Accordion title="Über uns">
+              <ul>
+                <li>
+                  <a href="https://tahmdev.github.io/e-commerce/">
+                    Unternehmen
+                  </a>
+                </li>
+                <li>
+                  <a href="https://tahmdev.github.io/e-commerce/">
+                    Unsere Märkte
+                  </a>
+                </li>
+                <li>
+                  <a href="https://tahmdev.github.io/e-commerce/">
+                    Verkaufen auf mediamarkt.de
+                  </a>
+                </li>
+                <li>
+                  <a href="https://tahmdev.github.io/e-commerce/">
+                    Unsere Marken
+                  </a>
+                </li>
+                <li>
+                  <a href="https://tahmdev.github.io/e-commerce/">
+                    Jobs & Karriere
+                  </a>
+                </li>
+                <li>
+                  <a href="https://tahmdev.github.io/e-commerce/">
+                    Koch-mit.de
+                  </a>
+                </li>
+                <li>
+                  <a href="https://tahmdev.github.io/e-commerce/">Gamez.de</a>
+                </li>
+                <li>
+                  <a href="https://tahmdev.github.io/e-commerce/">
+                    MediaMagazin
+                  </a>
+                </li>
+                <li>
+                  <a href="https://tahmdev.github.io/e-commerce/">
+                    Nachhaltigkeit
+                  </a>
+                </li>
+                <li>
+                  <a href="https://tahmdev.github.io/e-commerce/">
+                    Schwachstellen-Offenlegungsprogramm
+                  </a>
+                </li>
+              </ul>
+            </Accordion>
+          </div>
+          <div className="accordion-flex">
+            <div className="split">
+              <div>
+                <a href="https://tahmdev.github.io/e-commerce/">
+                  {" "}
+                  <img className="logo" src="logo.png" alt="logo" />{" "}
+                </a>
+              </div>
+              <div className="flex-container">
+                <WithSlideInBorder style={"2px solid orange"}>
+                  <a
+                    href="https://tahmdev.github.io/e-commerce/"
+                    aria-label="Contact-link-1"
+                  >
+                    <FontAwesomeIcon
+                      className="contact-icon"
+                      icon={faCommentDots}
+                    />
+                  </a>
+                </WithSlideInBorder>
+                <WithSlideInBorder style={"2px solid orange"}>
+                  <a
+                    href="https://tahmdev.github.io/e-commerce/"
+                    aria-label="Contact-link-1"
+                  >
+                    <FontAwesomeIcon
+                      className="contact-icon"
+                      icon={faEnvelope}
+                    />
+                  </a>
+                </WithSlideInBorder>
+                <WithSlideInBorder style={"2px solid orange"}>
+                  <a
+                    href="https://tahmdev.github.io/e-commerce/"
+                    aria-label="Contact-link-1"
+                  >
+                    <FontAwesomeIcon
+                      className="contact-icon"
+                      icon={faEnvelope}
+                    />
+                  </a>
+                </WithSlideInBorder>
+                <WithSlideInBorder style={"2px solid orange"}>
+                  <a
+                    href="https://tahmdev.github.io/e-commerce/"
+                    aria-label="Contact-link-1"
+                  >
+                    <FontAwesomeIcon
+                      className="contact-icon"
+                      icon={faEnvelope}
+                    />
+                  </a>
+                </WithSlideInBorder>
+              </div>
+            </div>
+            <div className="split no-margin">
+              <div>
+                <p> Laden Sie unsere App herunter</p>
+                <div className="flex-container wrap">
+                  <a href="https://tahmdev.github.io/e-commerce/">
+                    {" "}
+                    <img className="logo" src="logo.png" alt="logo" />{" "}
+                  </a>
+                  <a href="https://tahmdev.github.io/e-commerce/">
+                    {" "}
+                    <img className="logo" src="logo.png" alt="logo" />{" "}
+                  </a>
+                  <a href="https://tahmdev.github.io/e-commerce/">
+                    {" "}
+                    <img className="logo" src="logo.png" alt="logo" />{" "}
+                  </a>
                 </div>
               </div>
             </div>
-          </section>
-        </footer>
+          </div>
+        </section>
+      </footer>
     </div>
   );
 }
 
 export default App;
-
-
 
 const carousel1Data = [
   {
@@ -320,8 +603,9 @@ const carousel1Data = [
     info: ["Yep info"],
     preTitle: "NUR BIS 27.04., 19:59 UHR",
     title: "WOW TITLE",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
-    tags: []
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+    tags: [],
   },
   {
     link: "https://tahmdev.github.io/e-commerce/",
@@ -329,85 +613,98 @@ const carousel1Data = [
     info: ["Yep info", "Another one"],
     preTitle: "Nur bis Gestern",
     title: "WOW TITLE",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-    tags: []
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+    tags: [],
   },
-  { 
+  {
     link: "https://tahmdev.github.io/e-commerce/",
     image: ["./images/vZYA0EH.webp", "alt here 3"],
     info: [],
     preTitle: "Shark.",
     title: "Still a title",
     description: "Lorem ipsum dolor sit amet ",
-    tags: ["tags", "wow"]
+    tags: ["tags", "wow"],
   },
-]
+];
 
 const gallery1Data = [
   {
-    image: "https://cms-images.mmst.eu/2rj3gcd43pmw/5nVWWjqTJewdSXVRTdK1ag/14d3fa574168dc7b1c8707eaa73f463e/Saturn_smarttv-kategoriekachel2.jpg?q=80&w=264",
+    image:
+      "https://cms-images.mmst.eu/2rj3gcd43pmw/5nVWWjqTJewdSXVRTdK1ag/14d3fa574168dc7b1c8707eaa73f463e/Saturn_smarttv-kategoriekachel2.jpg?q=80&w=264",
     text: "Smart TVs",
-    link: "https://tahmdev.github.io/e-commerce/"
+    link: "https://tahmdev.github.io/e-commerce/",
   },
   {
-    image: "https://cms-images.mmst.eu/2rj3gcd43pmw/2xJ4cTCQSN1CsFrbUVD2AU/3b5447cf570804d105ca4f58d6d29f95/MM_Smartphone__1_.jpg?q=80&w=264",
+    image:
+      "https://cms-images.mmst.eu/2rj3gcd43pmw/2xJ4cTCQSN1CsFrbUVD2AU/3b5447cf570804d105ca4f58d6d29f95/MM_Smartphone__1_.jpg?q=80&w=264",
     text: "Smartphones",
-    link: "https://tahmdev.github.io/e-commerce/"
+    link: "https://tahmdev.github.io/e-commerce/",
   },
   {
-    image: "https://cms-images.mmst.eu/2rj3gcd43pmw/7rR74GmWdPZuOqVA7q6jSA/14be2966145819ae3d9f05ec73f731ee/category_module_kvs_kuehlgefrierkombi.png?q=80&w=264",
+    image:
+      "https://cms-images.mmst.eu/2rj3gcd43pmw/7rR74GmWdPZuOqVA7q6jSA/14be2966145819ae3d9f05ec73f731ee/category_module_kvs_kuehlgefrierkombi.png?q=80&w=264",
     text: "Kühl-Gefrierkombis",
-    link: "https://tahmdev.github.io/e-commerce/"
+    link: "https://tahmdev.github.io/e-commerce/",
   },
   {
-    image: "https://cms-images.mmst.eu/2rj3gcd43pmw/5H1XiefrMCGNAingV3fet9/51e129569b96286610fcd33d7345bdc5/MM_notebooks-kategoriekachel2.jpg?q=80&w=264",
+    image:
+      "https://cms-images.mmst.eu/2rj3gcd43pmw/5H1XiefrMCGNAingV3fet9/51e129569b96286610fcd33d7345bdc5/MM_notebooks-kategoriekachel2.jpg?q=80&w=264",
     text: "Notebooks",
-    link: "https://tahmdev.github.io/e-commerce/"
+    link: "https://tahmdev.github.io/e-commerce/",
   },
   {
-    image: "https://cms-images.mmst.eu/2rj3gcd43pmw/3B74wcO4OqCahejil6OgXd/f50462d46e23349e5088295bb1caf33b/MM_GamingKategorieModul.jpg?q=80&w=264",
+    image:
+      "https://cms-images.mmst.eu/2rj3gcd43pmw/3B74wcO4OqCahejil6OgXd/f50462d46e23349e5088295bb1caf33b/MM_GamingKategorieModul.jpg?q=80&w=264",
     text: "Gaming & VR",
-    link: "https://tahmdev.github.io/e-commerce/"
+    link: "https://tahmdev.github.io/e-commerce/",
   },
   {
-    image: "https://cms-images.mmst.eu/2rj3gcd43pmw/2YaJsL5gwHUKwDPokXBq4z/aa45bf7e6a166222263639786896437c/MM_Waschmaschine.jpg?q=80&w=264",
+    image:
+      "https://cms-images.mmst.eu/2rj3gcd43pmw/2YaJsL5gwHUKwDPokXBq4z/aa45bf7e6a166222263639786896437c/MM_Waschmaschine.jpg?q=80&w=264",
     text: "Waschmaschinen & Trockner",
-    link: "https://tahmdev.github.io/e-commerce/"
+    link: "https://tahmdev.github.io/e-commerce/",
   },
-]
+];
 
 const gallery2Data = [
   {
-    image: "https://cms-images.mmst.eu/2rj3gcd43pmw/2TJur0AfHxonBn0GA4xir5/6897e68511bbbbb2a867c20d5a4d7280/MM_Tagesdeals_Icon.png?q=80&w=264",
+    image:
+      "https://cms-images.mmst.eu/2rj3gcd43pmw/2TJur0AfHxonBn0GA4xir5/6897e68511bbbbb2a867c20d5a4d7280/MM_Tagesdeals_Icon.png?q=80&w=264",
     text: "Deal des Tages",
-    link: "https://tahmdev.github.io/e-commerce/"
+    link: "https://tahmdev.github.io/e-commerce/",
   },
   {
-    image: "https://cms-images.mmst.eu/2rj3gcd43pmw/2e7iTi2JYREelCOQ1D0hpR/020020680693e30deb051d33f26170bb/Smart_wearebles.png.png?q=80&w=264",
+    image:
+      "https://cms-images.mmst.eu/2rj3gcd43pmw/2e7iTi2JYREelCOQ1D0hpR/020020680693e30deb051d33f26170bb/Smart_wearebles.png.png?q=80&w=264",
     text: "Smartphones & Wearables",
-    link: "https://tahmdev.github.io/e-commerce/"
+    link: "https://tahmdev.github.io/e-commerce/",
   },
   {
-    image: "https://cms-images.mmst.eu/2rj3gcd43pmw/2xqsuVcH28sqBh0BtC4HCd/cefbd18250a8cf63026c7c74d9228c8a/TV_Sound.png.jpg?q=80&w=264",
+    image:
+      "https://cms-images.mmst.eu/2rj3gcd43pmw/2xqsuVcH28sqBh0BtC4HCd/cefbd18250a8cf63026c7c74d9228c8a/TV_Sound.png.jpg?q=80&w=264",
     text: "TV & Audio",
-    link: "https://tahmdev.github.io/e-commerce/"
+    link: "https://tahmdev.github.io/e-commerce/",
   },
   {
-    image: "https://cms-images.mmst.eu/2rj3gcd43pmw/DLJitQkj0BhMX87VYcn8Q/a04694b14bb31112d1ebf65e02c4d251/comp_buero.png.png?q=80&w=264",
+    image:
+      "https://cms-images.mmst.eu/2rj3gcd43pmw/DLJitQkj0BhMX87VYcn8Q/a04694b14bb31112d1ebf65e02c4d251/comp_buero.png.png?q=80&w=264",
     text: "Computer & Büro",
-    link: "https://tahmdev.github.io/e-commerce/"
+    link: "https://tahmdev.github.io/e-commerce/",
   },
   {
-    image: "https://cms-images.mmst.eu/2rj3gcd43pmw/3uPGnzWP5UtrIzIYpCK3eb/cfd2306fb5b725f5a1d8d954ba0978e7/Haushaltsgross.png.png?q=80&w=264",
+    image:
+      "https://cms-images.mmst.eu/2rj3gcd43pmw/3uPGnzWP5UtrIzIYpCK3eb/cfd2306fb5b725f5a1d8d954ba0978e7/Haushaltsgross.png.png?q=80&w=264",
     text: "Haushaltsgroßgeräte",
-    link: "https://tahmdev.github.io/e-commerce/"
+    link: "https://tahmdev.github.io/e-commerce/",
   },
   {
-    image: "https://cms-images.mmst.eu/2rj3gcd43pmw/2yyiPVv3zh8BU00P9mLJkq/bd6ee4d1709660b6772363f60a3e8701/Gaming_VR.png.png?q=80&w=264",
+    image:
+      "https://cms-images.mmst.eu/2rj3gcd43pmw/2yyiPVv3zh8BU00P9mLJkq/bd6ee4d1709660b6772363f60a3e8701/Gaming_VR.png.png?q=80&w=264",
     text: "Gaming & VR",
-    link: "https://tahmdev.github.io/e-commerce/"
+    link: "https://tahmdev.github.io/e-commerce/",
   },
-]
+];
 
 const longCarousel1Data = [
   {
@@ -619,5 +916,4 @@ const longCarousel1Data = [
     price: 149.58,
     info: [],
   },
-
-]
+];
